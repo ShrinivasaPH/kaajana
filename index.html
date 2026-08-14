@@ -129,6 +129,11 @@ nav a:hover{color:var(--violet); background:var(--violet-soft)}
   font-style:normal; font-size:66px; color:var(--violet); line-height:1;
   font-family:'Baloo Tamma 2',sans-serif; font-weight:700;
 }
+/* photo sits over the monogram; if it fails to load the monogram shows through */
+.medallion img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:50% 30%; border-radius:50%;
+}
 .perch{position:absolute; top:-16px; right:-14px; width:44px; height:44px; background:var(--marigold); border-radius:50% 50% 50% 12px; display:grid; place-items:center; box-shadow:var(--shadow-s)}
 .perch svg{width:26px; height:26px; transform:scaleX(-1)}
 .founder-role{margin-top:16px; font-size:13px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; color:var(--ink2)}
@@ -227,7 +232,8 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
 .person{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-s); transition:.28s var(--ease)}
 .person:hover{box-shadow:var(--shadow-m); transform:translateY(-4px)}
 .person-top{display:flex; align-items:center; gap:16px}
-.avatar{width:66px; height:66px; border-radius:20px; flex:none; display:grid; place-items:center; font-size:28px; font-weight:700; color:#fff; font-family:'Baloo Tamma 2',sans-serif}
+.avatar{width:66px; height:66px; border-radius:20px; flex:none; display:grid; place-items:center; font-size:28px; font-weight:700; color:#fff; font-family:'Baloo Tamma 2',sans-serif; position:relative; overflow:hidden}
+.avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 25%}
 .person h3{margin:0; font-size:21px; font-weight:600}
 .person .role{font-size:14px; color:var(--violet); font-weight:600}
 .person p{margin:15px 0 0; color:var(--ink2); font-size:16px}
@@ -334,11 +340,6 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   html{scroll-behavior:auto}
   .rise{opacity:1; transform:none}
 }
-.medallion img{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; object-position:50% 30%; border-radius:50%;
-}
-.avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 25%}
 </style>
 </head>
 <body>
@@ -739,11 +740,13 @@ const JOURNEY = [
 
 const LEADS = [
   {i:'ಬೇ', ci:'B', c:'#5B3CC4',
+   img:'images/beluru-raghunandan.jpg', pos:'50% 28%',
    n:{kn:'ಬೇಲೂರು ರಘುನಂದನ್',en:'Beluru Raghunandan'},
    r:{kn:'ಸಂಸ್ಥಾಪಕ · ಕಲಾ ನಿರ್ದೇಶಕ',en:'Founder · Artistic Director'},
    b:{kn:'ತಂಡದ ಮೊದಲ ಓದಿನಿಂದ ಇಂದಿನವರೆಗೆ ಜೊತೆಗಿರುವ ದನಿ. ಅವರ ರಂಗಪ್ರಯಾಣ, ಬರೆದ ಮತ್ತು ನಿರ್ದೇಶಿಸಿದ ನಾಟಕಗಳು, ತರಬೇತಿಯ ಹಿನ್ನೆಲೆ — ಈ ಬಗ್ಗೆ ಮೂರು-ನಾಲ್ಕು ಸಾಲು ಇಲ್ಲಿ ಬರುತ್ತದೆ.',
       en:'The voice that has been with the company since the first reading. Three or four lines about his theatre journey, the plays he has written and directed, and his training go here.'}},
   {i:'ಶ್ರೀ', ci:'S', c:'#E85C8A',
+   img:'images/srini-sampath-lakshmi.jpg', pos:'50% 25%',
    n:{kn:'ಶ್ರೀನಿ ಸಂಪತ್ ಲಕ್ಷ್ಮಿ',en:'Srini Sampath Lakshmi'},
    r:{kn:'ಮುಖ್ಯೋಪಾಧ್ಯಾಯರು',en:'Principal'},
    b:{kn:'ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ.',
@@ -751,11 +754,11 @@ const LEADS = [
 ];
 
 const CREW = [
-  {i:'ರ', ci:'R', c:'#57C4A5', n:{kn:'ರವಿತೇಜ',en:'Raviteja'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
+  {i:'ರ', ci:'R', c:'#57C4A5', img:'images/raviteja.jpg', n:{kn:'ರವಿತೇಜ',en:'Raviteja'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
    b:{kn:'ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.',en:'Light, sound, set or stage management.'}},
-  {i:'ಪ', ci:'P', c:'#FFA630', n:{kn:'ಪವನ್',en:'Pavan'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
+  {i:'ಪ', ci:'P', c:'#FFA630', img:'images/pavan.jpg', n:{kn:'ಪವನ್',en:'Pavan'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
    b:{kn:'',en:''}},
-  {i:'ಅ', ci:'A', c:'#5B3CC4', n:{kn:'ಅನಿತಾ',en:'Anitha'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
+  {i:'ಅ', ci:'A', c:'#5B3CC4', img:'images/anitha.jpg', n:{kn:'ಅನಿತಾ',en:'Anitha'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
    b:{kn:'',en:''}}
 ];
 
@@ -873,7 +876,7 @@ function paintJourney(){
 function personCard(p){
   return `<div class="person">
     <div class="person-top">
-      <span class="avatar" style="background:${p.c}">${lang === 'kn' ? p.i : p.ci}</span>
+      <span class="avatar" style="background:${p.c}">${lang === 'kn' ? p.i : p.ci}${p.img ? `<img src="${p.img}" alt="${esc(L(p.n))}"${p.pos ? ` style="object-position:${p.pos}"` : ''} onerror="this.remove()">` : ''}</span>
       <span>
         <h3>${esc(L(p.n))}</h3>
         <span class="role">${esc(L(p.r))}</span>
@@ -881,6 +884,20 @@ function personCard(p){
     </div>
     <p>${esc(L(p.b))}</p>
   </div>`;
+}
+
+function paintFounderPhoto(){
+  const med = document.querySelector('.medallion');
+  const had = med.querySelector('img');
+  if (had) had.remove();
+  const f = LEADS[0];
+  if (!f.img) return;
+  const im = new Image();
+  im.src = f.img;
+  im.alt = L(f.n);
+  if (f.pos) im.style.objectPosition = f.pos;
+  im.onerror = () => im.remove();          // no photo yet -> monogram stays
+  med.insertBefore(im, med.querySelector('.perch'));
 }
 
 function paintTeam(){
@@ -998,6 +1015,7 @@ document.querySelectorAll('.rise').forEach(x => io.observe(x));
 
 function render(){
   paintStatic(); paintTicker(); paintLedger(); paintChips(); paintPlays();
+  paintFounderPhoto();
   paintJourney(); paintTeam(); paintSvc(); paintVoices(); paintReach(); paintForm();
   document.title = lang === 'kn' ? 'ಕಾಜಾಣ ರಂಗತಂಡ · ಬೆಂಗಳೂರು' : 'Kaajana Theatre · Bengaluru';
 }
