@@ -923,13 +923,14 @@ const VOICES = [
 ];
 
 const REACH = [
-  {ic:'M4 4h16v16H4zM4 7l8 6 8-6', k:{kn:'ಇ-ಮೇಲ್',en:'Email'}, v:'', href:'mailto:namaskara@kaajana.in'},
+  {ic:'M4 4h16v16H4zM4 7l8 6 8-6', k:{kn:'ಇ-ಮೇಲ್',en:'Email'}, v:'namaskara@kaajana.in', href:'mailto:namaskara@kaajana.in'},
   {ic:'M22 16.9v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 18.6 18.6 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 4.8 3h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L9 10.7a15 15 0 0 0 5.7 5.7l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z',
-   k:{kn:'ಬುಕಿಂಗ್ (ಶ್ರೀನಿ)',en:'Bookings (Srini)'}, v:'+91 84318 03866', href:'tel:+91 84318 03866'},
+   k:{kn:'ಬುಕಿಂಗ್ (ಶ್ರೀನಿ)',en:'Bookings (Srini)'}, v:'+91 84318 03866', href:'tel:+918431803866'},
   {ic:'M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7ZM12 11.5A2.5 2.5 0 1 0 12 6.5a2.5 2.5 0 0 0 0 5Z',
-   k:{kn:'ರಿಹರ್ಸಲ್ ಜಾಗ',en:'Rehearsal space'}, v:{kn:'ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.',en:'Nagarbhavi, Bengaluru.'}, href:'#'},
+   k:{kn:'ರಿಹರ್ಸಲ್ ಜಾಗ',en:'Rehearsal space'}, v:{kn:'ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.',en:'Nagarbhavi, Bengaluru.'},
+   href:'https://www.google.com/maps/search/?api=1&query=Nagarbhavi%2C+Bengaluru'},
   {ic:'M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01',
-   k:{kn:'ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್',en:'Instagram'}, v:'@kaajaana_official', href:'#'}
+   k:{kn:'ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್',en:'Instagram'}, v:'@kaajaana_official', href:'https://www.instagram.com/kaajaana_official/'}
 ];
 const SOCIAL = [
   {k:'Instagram', href:'https://www.instagram.com/kaajaana_official/', ic:'M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01'},
@@ -1083,7 +1084,7 @@ function paintVoices(){
 
 function paintReach(){
   document.getElementById('reach').innerHTML = REACH.map(r => `
-    <a href="${r.href}">
+    <a href="${r.href}" ${/^https?:/i.test(r.href) ? 'target="_blank" rel="noopener noreferrer"' : ''}>
       <svg viewBox="0 0 24 24"><path d="${r.ic}"/></svg>
       <span><span class="k">${esc(L(r.k))}</span><span class="v">${esc(L(r.v))}</span></span>
     </a>`).join('');
@@ -1176,11 +1177,13 @@ document.getElementById('send').onclick = () => {
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll('.rise').forEach(x => io.observe(x));
 function paintSocial(){
-  document.getElementById('social').innerHTML = SOCIAL.map(s => `
-    <a class="social" href="${s.href}" aria-label="${esc(s.k)}" title="${esc(s.k)}"
-       ${s.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
-      <svg viewBox="0 0 24 24"><path d="${s.ic}"/></svg>
-    </a>`).join('');
+  document.getElementById('social').innerHTML = SOCIAL
+    .filter(s => s.href && s.href !== '#')          // an icon that goes nowhere never renders
+    .map(s => `
+      <a class="social" href="${s.href}" aria-label="${esc(s.k)}" title="${esc(s.k)}"
+         ${/^https?:/i.test(s.href) ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+        <svg viewBox="0 0 24 24"><path d="${s.ic}"/></svg>
+      </a>`).join('');
 }
 
 /* scroll to top — lives directly on <body>, so no transformed ancestor
