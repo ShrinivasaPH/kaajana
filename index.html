@@ -365,7 +365,33 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 /* touch feedback in place of hover */
 .play:active,.person:active{transform:scale(.985)}
 .btn:active{transform:translateY(1px)}
+/* ── social row + scroll to top ─────────────────────────── */
+.social-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding:32px 0 6px}
+.social{width:46px; height:46px; border-radius:50%; display:grid; place-items:center;
+        background:var(--stage); border:1px solid var(--line); transition:.22s var(--ease)}
+.social svg{width:21px; height:21px; stroke:var(--violet); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.foot{border-top:1px solid var(--line)}
 
+.totop{
+  position:fixed; z-index:2100;
+  right:max(18px,env(safe-area-inset-right));
+  bottom:calc(18px + env(safe-area-inset-bottom));
+  width:50px; height:50px; border-radius:50%; border:0; cursor:pointer;
+  background:var(--ink); display:grid; place-items:center; box-shadow:var(--shadow-m);
+  opacity:0; visibility:hidden; transform:translateY(12px);
+  transition:opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
+}
+.totop.show{opacity:1; visibility:visible; transform:none}
+.totop svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
+@media (hover:hover) and (pointer:fine){
+  .social:hover{background:var(--violet); border-color:var(--violet); transform:translateY(-3px)}
+  .social:hover svg{stroke:#fff}
+  .totop:hover{background:var(--violet); transform:translateY(-3px)}
+}
+@media (max-width:620px){
+  .totop{width:46px; height:46px; right:max(14px,env(safe-area-inset-right)); bottom:calc(14px + env(safe-area-inset-bottom))}
+}
 /* ── responsive ─────────────────────────────────────────── */
 @media (max-width:900px){
   .about-grid,.contact-grid{grid-template-columns:1fr; gap:30px}
@@ -645,11 +671,16 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 </main>
 
 <footer>
+  <div class="wrap social-row" id="social"></div>
   <div class="wrap foot">
     <span data-i18n="foot.left"></span>
     <span data-i18n="foot.right"></span>
   </div>
 </footer>
+
+<button class="totop" id="toTop" type="button" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <!-- play detail sheet -->
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
@@ -900,7 +931,13 @@ const REACH = [
   {ic:'M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01',
    k:{kn:'ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್',en:'Instagram'}, v:'@kaajaana_official', href:'#'}
 ];
-
+const SOCIAL = [
+  {k:'Instagram', href:'#https://www.instagram.com/kaajaana_official/', ic:'M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01'},
+  {k:'YouTube',   href:'#https://www.youtube.com/@Kaajaana', ic:'M22 12s0-3.3-.4-4.9a2.6 2.6 0 0 0-1.8-1.8C18.2 4.9 12 4.9 12 4.9s-6.2 0-7.8.4a2.6 2.6 0 0 0-1.8 1.8C2 8.7 2 12 2 12s0 3.3.4 4.9a2.6 2.6 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8c.4-1.6.4-4.9.4-4.9ZM10 15.2l5-3.2-5-3.2v6.4Z'},
+  {k:'Facebook',  href:'#https://www.facebook.com/profile.php?id=61571921651914', ic:'M14 8.5V6.6c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.2H8V12h2.6v9.8h3.1V12h2.6l.4-3.5H14Z'},
+  {k:'WhatsApp',  href:'#https://wa.me/918431803866', ic:'M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5 5 16.2a8.5 8.5 0 1 1 15.5-4.6ZM8.9 8.6c-.3.7-.1 1.6.5 2.5.9 1.4 2.1 2.3 3.4 2.7.8.2 1.5.1 1.9-.3l.5-.6-1.7-1.1-.7.6c-.6-.3-1.4-1-1.8-1.8l.6-.7-1.1-1.7-.6.4Z'},
+  {k:'Email', href:'mailto:namaskara@kaajana.in', ic:'M4 4h16v16H4zM4 7l8 6 8-6'}
+];
 /* ═══════════════════════════════════════════════════════════
    ENGINE
    ═══════════════════════════════════════════════════════════ */
@@ -1138,10 +1175,26 @@ document.getElementById('send').onclick = () => {
 /* scroll reveal */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll('.rise').forEach(x => io.observe(x));
+function paintSocial(){
+  document.getElementById('social').innerHTML = SOCIAL.map(s => `
+    <a class="social" href="${s.href}" aria-label="${esc(s.k)}" title="${esc(s.k)}"
+       ${s.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>
+      <svg viewBox="0 0 24 24"><path d="${s.ic}"/></svg>
+    </a>`).join('');
+}
 
+/* scroll to top — lives directly on <body>, so no transformed ancestor
+   can hijack its containing block and pin it mid-page */
+const toTop = document.getElementById('toTop');
+const calmScroll = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const toggleTop = () => toTop.classList.toggle('show', window.scrollY > 320);
+['scroll','resize','load','orientationchange'].forEach(ev =>
+  window.addEventListener(ev, toggleTop, {passive:true}));
+toggleTop();
+toTop.onclick = () => window.scrollTo({top:0, behavior: calmScroll ? 'auto' : 'smooth'});
 function render(){
   paintStatic(); paintTicker(); paintLedger(); paintChips(); paintPlays();
-  paintFounderPhoto();
+  paintFounderPhoto(); paintSocial();
   paintJourney(); paintTeam(); paintSvc(); paintVoices(); paintReach(); paintForm();
   document.title = lang === 'kn' ? 'ಕಾಜಾಣ ರಂಗತಂಡ · ಬೆಂಗಳೂರು' : 'Kaajana Theatre · Bengaluru';
 }
