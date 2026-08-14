@@ -6,6 +6,35 @@
 <meta name="theme-color" content="#F2F0FC">
 <title>ಕಾಜಾಣ ರಂಗತಂಡ · Kaajana Theatre, Bengaluru</title>
 <meta name="description" content="ಕಾಜಾಣ — ಬೆಂಗಳೂರಿನ ಕನ್ನಡ ರಂಗತಂಡ. ನಾಟಕಗಳು, ತಂಡ, ಕಾರ್ಯಾಗಾರ ಮತ್ತು ಸಂಪರ್ಕ.">
+
+<!-- ══ SHARE PREVIEW ═══════════════════════════════════════════════════
+     Replace https://kaajana.in with the real address in the FOUR lines
+     marked ▼ below. These must be full absolute URLs — WhatsApp, Facebook
+     and X will not follow a relative path, and the preview stays blank. -->
+<link rel="canonical" href="https://kaajana.in/">                                  <!-- ▼ -->
+<meta property="og:url" content="https://kaajana.in/">                             <!-- ▼ -->
+<meta property="og:image" content="https://kaajana.in/images/og-image.png">        <!-- ▼ -->
+<meta name="twitter:image" content="https://kaajana.in/images/og-image.png">       <!-- ▼ -->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ಕಾಜಾಣ ರಂಗತಂಡ">
+<meta property="og:title" content="ಕಾಜಾಣ ರಂಗತಂಡ · Kaajana Theatre, Bengaluru">
+<meta property="og:description" content="ಕನ್ನಡ ರಂಗಭೂಮಿಯ ಜೀವಂತ ದನಿ. ನಾಟಕಗಳು, ತಂಡ, ಕಾರ್ಯಾಗಾರ ಮತ್ತು ಪ್ರದರ್ಶನ ಬುಕಿಂಗ್.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="ಕಾಜಾಣ ರಂಗತಂಡ · Kaajana Theatre, Bengaluru">
+<meta property="og:locale" content="kn_IN">
+<meta property="og:locale:alternate" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ಕಾಜಾಣ ರಂಗತಂಡ · Kaajana Theatre, Bengaluru">
+<meta name="twitter:description" content="ಕನ್ನಡ ರಂಗಭೂಮಿಯ ಜೀವಂತ ದನಿ. ನಾಟಕಗಳು, ತಂಡ, ಕಾರ್ಯಾಗಾರ ಮತ್ತು ಪ್ರದರ್ಶನ ಬುಕಿಂಗ್.">
+<meta name="twitter:image:alt" content="ಕಾಜಾಣ ರಂಗತಂಡ · Kaajana Theatre, Bengaluru">
+
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
+<!-- ═══════════════════════════════════════════════════════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Kannada:wght@300..700&family=Baloo+Tamma+2:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet">
@@ -209,6 +238,11 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
 .poster-photo .fill{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:blur(20px) saturate(1.25); transform:scale(1.15); opacity:.75}
 .poster-photo .front{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 10px 22px rgba(34,26,60,.28))}
 .play.has-photo .poster-yr,.play.has-photo .poster-t{visibility:hidden}
+.play.soon{border:1px dashed var(--line); background:transparent; box-shadow:none; cursor:default}
+.play.soon .poster{opacity:.55}
+.play.soon .poster-t{font-size:20px; max-width:100%; line-height:1.4}
+.play.soon .tagline{color:var(--ink2)}
+.play.soon .more{color:var(--ink2)}
 .play-title{font-size:19px; line-height:1.3; margin:0 0 2px}
 .play-title small{font-weight:400; font-size:14px; color:var(--ink2); letter-spacing:.06em}
 .play:not(.has-photo) .play-title{display:none}
@@ -685,6 +719,7 @@ const STR = {
   'plays.h':{kn:'ಇದುವರೆಗಿನ ಪ್ರಯೋಗಗಳು',en:'What we have staged'},
   'plays.sub':{kn:'ಯಾವುದೇ ನಾಟಕದ ಮೇಲೆ ಒತ್ತಿ — ಕಥೆ, ತಂಡ, ವೇದಿಕೆಗಳ ವಿವರ ಸಿಗುತ್ತದೆ.',en:'Tap any play for the story, the credits and where it travelled.'},
   'plays.all':{kn:'ಎಲ್ಲ',en:'All'},
+  'plays.soon':{kn:'ಶೀಘ್ರದಲ್ಲಿ',en:'Coming soon'},
 
   'journey.eyebrow':{kn:'ಪ್ರಯಾಣ',en:'Journey'},
   'journey.h':{kn:'ಒಂದು ಓದುವ ಗುಂಪಿನಿಂದ ಇಲ್ಲಿಯವರೆಗೆ',en:'From a reading circle to here'},
@@ -777,7 +812,36 @@ const PLAYS = [
     writer:{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
     dir:{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
     time:55, cast:5, shows:64
+  },
+
+  {
+    soon:true, y:'', tag:'', hue:['#EDE9FB','#DCD5F6'],
+    img:'',
+    t:{kn:'ಮತ್ತಷ್ಟು ನಾಟಕಗಳ ಮಾಹಿತಿ - ಶೀಘ್ರದಲ್ಲಿ.',en:'More plays information - coming soon.'},
+    line:{kn:'ಪರದೆಯ ಹಿಂದೆ',en:'Behind the curtain'},
+    story:{
+      kn:'',
+      en:''
+    },
+    writer:{kn:'',en:''},
+    dir:{kn:'',en:''},
+    time:'', cast:'', shows:''
+  },
+
+  {
+    y:'', tag:'children', hue:['#D6F3E7','#A8E6CF'],
+    img:'',
+    t:{kn:'ಮತ್ತಷ್ಟು ನಾಟಕಗಳ ಮಾಹಿತಿ - ಶೀಘ್ರದಲ್ಲಿ.',en:'More plays information - coming soon.'},
+    line:{kn:'ಪರದೆಯ ಹಿಂದೆ',en:'Behind the curtain'},
+    story:{
+      kn:'',
+      en:''
+    },
+    writer:{kn:'',en:''},
+    dir:{kn:'',en:''},
+    time:'', cast:'', shows:''
   }
+
 ];
 
 const JOURNEY = [
@@ -907,10 +971,12 @@ function dropPoster(img){                 // poster missing -> fall back to the 
 function paintPlays(){
   const grid = document.getElementById('playGrid');
   grid.innerHTML = '';
-  PLAYS.filter(p => filter === 'all' || p.tag === filter).forEach((p, i) => {
+  const list = PLAYS.filter(p => p.soon || filter === 'all' || p.tag === filter)
+                    .sort((a, b) => (a.soon ? 1 : 0) - (b.soon ? 1 : 0));   // placeholders last
+  list.forEach(p => {
     const tag = TAGS.find(x => x.id === p.tag);
-    const card = el('button', 'play');
-    card.type = 'button';
+    const card = el(p.soon ? 'div' : 'button', p.soon ? 'play soon' : 'play');
+    if (!p.soon) card.type = 'button';
     if (p.img) card.classList.add('has-photo');
     card.innerHTML = `
       <span class="poster" style="background:linear-gradient(150deg,${p.hue[0]},${p.hue[1]})">
@@ -922,14 +988,14 @@ function paintPlays(){
         </span>` : ''}
       </span>
       <span class="play-meta">
-        <span class="play-title display">${esc(L(p.t))} <small>· ${n(p.y)}</small></span>
+        <span class="play-title display">${esc(L(p.t))}${p.y ? ` <small>· ${n(p.y)}</small>` : ''}</span>
         <span class="tagline">${esc(L(p.line))}</span>
         <span class="play-foot">
-          <span class="pill">${esc(L(tag))}</span>
-          <span class="more">${n(p.shows)} ${esc(t('c.shows'))} →</span>
+          ${tag ? `<span class="pill">${esc(L(tag))}</span>` : ''}
+          <span class="more">${p.soon ? esc(t('plays.soon')) : `${n(p.shows)} ${esc(t('c.shows'))} →`}</span>
         </span>
       </span>`;
-    card.onclick = () => openSheet(PLAYS.indexOf(p));
+    if (!p.soon) card.onclick = () => openSheet(PLAYS.indexOf(p));
     grid.appendChild(card);
   });
 }
@@ -1019,23 +1085,27 @@ function openSheet(idx){
   document.getElementById('sheetHero').innerHTML = `
     <div class="sheet-cap" style="background:linear-gradient(150deg,${p.hue[0]},${p.hue[1]})">
       ${p.img ? `<img class="sheet-poster" src="${p.img}" alt="${esc(L(p.t))}" onerror="this.remove()">` : ''}
-      <span class="pill" style="background:rgba(255,255,255,.7);color:var(--ink)">${esc(L(tag))} · ${n(p.y)}</span>
+      ${tag || p.y ? `<span class="pill" style="background:rgba(255,255,255,.7);color:var(--ink)">${[tag ? esc(L(tag)) : '', p.y ? n(p.y) : ''].filter(Boolean).join(' · ')}</span>` : ''}
       <h2 class="display" id="sheetTitle">${esc(L(p.t))}</h2>
       <p style="margin:0;color:rgba(34,26,60,.72);font-size:18px">${esc(L(p.line))}</p>
     </div>`;
+  const row = (k, v) => v ? `<div><dt>${esc(t(k))}</dt><dd>${v}</dd></div>` : '';
+  const credits = [
+    row('c.writer', esc(L(p.writer))),
+    row('c.dir',    esc(L(p.dir))),
+    row('c.time',   p.time  ? `${n(p.time)} ${esc(t('u.min'))}`    : ''),
+    row('c.cast',   p.cast  ? `${n(p.cast)} ${esc(t('u.people'))}` : ''),
+    row('c.shows',  p.shows ? n(p.shows) : ''),
+    row('c.lang',   esc(t('kannada')))
+  ].join('');
+  const story  = L(p.story) || '';
+  const venues = L(p.venues) || [];
   document.getElementById('sheetBody').innerHTML = `
-    <dl class="credits">
-      <div><dt>${esc(t('c.writer'))}</dt><dd>${esc(L(p.writer))}</dd></div>
-      <div><dt>${esc(t('c.dir'))}</dt><dd>${esc(L(p.dir))}</dd></div>
-      <div><dt>${esc(t('c.time'))}</dt><dd>${n(p.time)} ${esc(t('u.min'))}</dd></div>
-      <div><dt>${esc(t('c.cast'))}</dt><dd>${n(p.cast)} ${esc(t('u.people'))}</dd></div>
-      <div><dt>${esc(t('c.shows'))}</dt><dd>${n(p.shows)}</dd></div>
-      <div><dt>${esc(t('c.lang'))}</dt><dd>${esc(t('kannada'))}</dd></div>
-    </dl>
-    <h3 class="display" style="font-size:21px;margin:0 0 8px">${esc(t('sheet.story'))}</h3>
-    <p style="margin:0 0 22px;color:var(--ink2);font-size:17px">${esc(L(p.story))}</p>
-    <h3 class="display" style="font-size:21px;margin:0 0 4px">${esc(t('sheet.venues'))}</h3>
-    <div class="venues">${L(p.venues).map(v => `<span>${esc(v)}</span>`).join('')}</div>
+    ${credits ? `<dl class="credits">${credits}</dl>` : ''}
+    ${story ? `<h3 class="display" style="font-size:21px;margin:0 0 8px">${esc(t('sheet.story'))}</h3>
+    <p style="margin:0 0 22px;color:var(--ink2);font-size:17px">${esc(story)}</p>` : ''}
+    ${venues.length ? `<h3 class="display" style="font-size:21px;margin:0 0 4px">${esc(t('sheet.venues'))}</h3>
+    <div class="venues">${venues.map(v => `<span>${esc(v)}</span>`).join('')}</div>` : ''}
     <div class="strip">${[1,2,3,4].map(() => `<div class="frame">${esc(t('sheet.photos'))}</div>`).join('')}</div>`;
   sheet.classList.add('open');
   document.body.style.overflow = 'hidden';
