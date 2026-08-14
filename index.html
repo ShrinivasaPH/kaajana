@@ -208,6 +208,13 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
   content:""; position:absolute; inset:0; opacity:.5;
   background:radial-gradient(circle at 78% 12%,rgba(255,255,255,.85),transparent 55%);
 }
+.poster-photo{position:absolute; inset:0; z-index:2; overflow:hidden; background:var(--stage)}
+.poster-photo .fill{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:blur(20px) saturate(1.25); transform:scale(1.15); opacity:.75}
+.poster-photo .front{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 10px 22px rgba(34,26,60,.28))}
+.play.has-photo .poster-yr,.play.has-photo .poster-t{visibility:hidden}
+.play-title{font-size:19px; line-height:1.3; margin:0 0 2px}
+.play-title small{font-weight:400; font-size:14px; color:var(--ink2); letter-spacing:.06em}
+.play:not(.has-photo) .play-title{display:none}
 .poster-yr{font-size:12.5px; font-weight:700; letter-spacing:.12em; color:rgba(34,26,60,.55); position:relative; z-index:1}
 .poster-t{font-size:27px; margin:0; position:relative; z-index:1; max-width:12ch}
 .play-meta{padding:18px 22px 22px; display:flex; flex-direction:column; gap:8px; flex:1}
@@ -295,6 +302,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 }
 @keyframes pop{from{opacity:0; transform:translateY(18px) scale(.98)}}
 .sheet-hero{padding:34px 34px 26px; position:relative}
+.sheet-poster{width:104px; aspect-ratio:3/4; object-fit:cover; border-radius:14px; float:left; margin:0 20px 12px 0; box-shadow:var(--shadow-m)}
 .sheet-hero h2{font-size:clamp(28px,4vw,40px); margin:8px 0 6px}
 .sheet-body{padding:28px 34px 34px}
 .credits{display:grid; grid-template-columns:repeat(3,1fr); gap:2px 20px; margin:0 0 24px; padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
@@ -697,6 +705,7 @@ const TAGS = [
 const PLAYS = [
   {
     y:2024, tag:'original', hue:['#FFE3BC','#FFC48A'],
+    img:'images/plays/maatha.jpg',
     t:{kn:'ಮಾತಾ',en:'Maatha'},
     line:{kn:'ಪದ್ಮಶ್ರೀ. ಬಿ. ಜೋಗತಿ ಮಂಜಮ್ಮ ಅವರ ಜೀವನಾಧಾರಿತ.',en:'Based on the life of Padmashree B. Jogathi Manjamma.'},
     story:{
@@ -711,6 +720,7 @@ const PLAYS = [
   },
   {
     y:2023, tag:'children', hue:['#D6F3E7','#A8E6CF'],
+    img:'images/plays/timmakka.jpg',
     t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Mother of the Banyan Trees'},
     line:{kn:'ವೃಕ್ಷಮಾತೆಯ ಕಥನ.',en:'A tale of the tree mother'},
     story:{
@@ -840,6 +850,13 @@ function paintChips(){
   });
 }
 
+function dropPoster(img){                 // poster missing -> fall back to the gradient card
+  const card = img.closest('.play');
+  const layer = img.closest('.poster-photo');
+  if (layer) layer.remove();
+  if (card) card.classList.remove('has-photo');
+}
+
 function paintPlays(){
   const grid = document.getElementById('playGrid');
   grid.innerHTML = '';
@@ -847,12 +864,18 @@ function paintPlays(){
     const tag = TAGS.find(x => x.id === p.tag);
     const card = el('button', 'play');
     card.type = 'button';
+    if (p.img) card.classList.add('has-photo');
     card.innerHTML = `
       <span class="poster" style="background:linear-gradient(150deg,${p.hue[0]},${p.hue[1]})">
         <span class="poster-yr">${n(p.y)}</span>
         <span class="poster-t display">${esc(L(p.t))}</span>
+        ${p.img ? `<span class="poster-photo">
+          <img class="fill" src="${p.img}" alt="" aria-hidden="true">
+          <img class="front" src="${p.img}" alt="${esc(L(p.t))}" onerror="dropPoster(this)">
+        </span>` : ''}
       </span>
       <span class="play-meta">
+        <span class="play-title display">${esc(L(p.t))} <small>· ${n(p.y)}</small></span>
         <span class="tagline">${esc(L(p.line))}</span>
         <span class="play-foot">
           <span class="pill">${esc(L(tag))}</span>
@@ -948,6 +971,7 @@ function openSheet(idx){
   lastFocus = document.activeElement;
   document.getElementById('sheetHero').innerHTML = `
     <div style="background:linear-gradient(150deg,${p.hue[0]},${p.hue[1]});margin:-34px -34px 22px;padding:40px 34px 30px;border-radius:28px 28px 0 0">
+      ${p.img ? `<img class="sheet-poster" src="${p.img}" alt="${esc(L(p.t))}" onerror="this.remove()">` : ''}
       <span class="pill" style="background:rgba(255,255,255,.7);color:var(--ink)">${esc(L(tag))} · ${n(p.y)}</span>
       <h2 class="display" id="sheetTitle">${esc(L(p.t))}</h2>
       <p style="margin:0;color:rgba(34,26,60,.72);font-size:18px">${esc(L(p.line))}</p>
