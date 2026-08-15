@@ -1,117 +1,137 @@
 {
   "strings": {
-    "about.eyebrow": {
-      "kn": "ನಮ್ಮ ಬಗ್ಗೆ",
-      "en": "About us"
+    "about": {
+      "eyebrow": {
+        "kn": "ನಮ್ಮ ಬಗ್ಗೆ",
+        "en": "About us"
+      },
+      "h": {
+        "kn": "ಕಾಜಾಣ",
+        "en": "Kaajana"
+      },
+      "lead": {
+        "kn": "ಸಮಾಜದ ದನಿಯನ್ನು ವೇದಿಕೆಯ ಮೇಲೆ ರೂಪವಾಗಿಸುವುದು.",
+        "en": "Kaajana — shaping the pulse of society on stage."
+      },
+      "p1": {},
+      "p2": {
+        "kn": "ಪ್ರತಿ ಪ್ರಯೋಗಕ್ಕೂ ಮೊದಲು ಹಲವು ವಾರಗಳ ಕಾರ್ಯಾಗಾರ, ಪೂರ್ಣ ಓದು ಮತ್ತು ರಿಹರ್ಸಲ್.",
+        "en": "Every production runs on the same method: daily reading, workshop, and an open rehearsal with the crew before opening night."
+      }
     },
-    "about.h": {
-      "kn": "ಕಾಜಾಣ",
-      "en": "Kaajana"
+    "bell": {
+      "label": {
+        "kn": "Info",
+        "en": "Info"
+      }
     },
-    "about.lead": {
-      "kn": "ಸಮಾಜದ ದನಿಯನ್ನು ವೇದಿಕೆಯ ಮೇಲೆ ರೂಪವಾಗಿಸುವುದು.",
-      "en": "Kaajana — shaping the pulse of society on stage."
+    "contact": {
+      "eyebrow": {
+        "kn": "ಸಂಪರ್ಕ",
+        "en": "Contact"
+      },
+      "h": {
+        "kn": "ಮಾತಾಡೋಣ",
+        "en": "Let’s talk"
+      },
+      "sub": {
+        "kn": "ಬುಕಿಂಗ್, ಕಾರ್ಯಾಗಾರ, ಸಹಯೋಗ ಅಥವಾ ತಂಡಕ್ಕೆ ಸೇರುವ ಆಸಕ್ತಿ — ಯಾವುದಕ್ಕೂ ಬರೆಯಿರಿ.",
+        "en": "Bookings, workshops, collaborations, or joining the company — write to us."
+      }
     },
-    "about.p1": {},
-    "about.p2": {
-      "kn": "ಪ್ರತಿ ಪ್ರಯೋಗಕ್ಕೂ ಮೊದಲು ಹಲವು ವಾರಗಳ ಕಾರ್ಯಾಗಾರ, ಪೂರ್ಣ ಓದು ಮತ್ತು ರಿಹರ್ಸಲ್.",
-      "en": "Every production runs on the same method: daily reading, workshop, and an open rehearsal with the crew before opening night."
+    "foot": {
+      "left": {
+        "kn": "© ೨೦೨೬ ಕಾಜಾಣ ರಂಗತಂಡ, ಬೆಂಗಳೂರು",
+        "en": "© 2026 Kaajana Theatre, Bengaluru"
+      },
+      "right": {
+        "kn": "ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.",
+        "en": "Nagarabhavi, Bengaluru."
+      }
     },
-    "bell.label": {
-      "kn": "Info",
-      "en": "Info"
+    "hero": {
+      "badge": {
+        "kn": "ಹಲವು ವರ್ಷಗಳಿಂದ ಕರ್ನಾಟಕದ ವೇದಿಕೆಗಳಲ್ಲಿ",
+        "en": "On Karnataka stages since years"
+      },
+      "quote": {
+        "kn": "",
+        "en": ""
+      },
+      "titleLead": {
+        "kn": "ಕನ್ನಡ ರಂಗಭೂಮಿಯ",
+        "en": "A living voice for"
+      },
+      "titleMark": {
+        "kn": "ದನಿ",
+        "en": "Kannada theatre"
+      }
     },
-    "contact.eyebrow": {
-      "kn": "ಸಂಪರ್ಕ",
-      "en": "Contact"
+    "invite": {
+      "eyebrow": {
+        "kn": "ಆಹ್ವಾನ",
+        "en": "Invite us"
+      },
+      "h": {
+        "kn": "ನಿಮ್ಮ ವೇದಿಕೆಗೆ, ಶಾಲೆಗೆ, ಉತ್ಸವಕ್ಕೆ ಕಾಜಾಣ",
+        "en": "Bring Kaajana to your stage, school or festival"
+      },
+      "sub": {
+        "kn": "",
+        "en": ""
+      }
     },
-    "contact.h": {
-      "kn": "ಮಾತಾಡೋಣ",
-      "en": "Let’s talk"
+    "journey": {
+      "eyebrow": {
+        "kn": "ಪ್ರಯಾಣ",
+        "en": "Journey"
+      },
+      "h": {
+        "kn": "ಒಂದು ಓದುವ ಗುಂಪಿನಿಂದ ಇಲ್ಲಿಯವರೆಗೆ",
+        "en": "From a reading circle to here"
+      },
+      "sub": {
+        "kn": "ತಂಡದ ದಾರಿಯಲ್ಲಿ ಬಂದ ಮುಖ್ಯ ನಿಲ್ದಾಣಗಳು.",
+        "en": "The stops that shaped the company."
+      }
     },
-    "contact.sub": {
-      "kn": "ಬುಕಿಂಗ್, ಕಾರ್ಯಾಗಾರ, ಸಹಯೋಗ ಅಥವಾ ತಂಡಕ್ಕೆ ಸೇರುವ ಆಸಕ್ತಿ — ಯಾವುದಕ್ಕೂ ಬರೆಯಿರಿ.",
-      "en": "Bookings, workshops, collaborations, or joining the company — write to us."
+    "plays": {
+      "eyebrow": {
+        "kn": "ನಾಟಕಗಳ ಪಟ್ಟಿ",
+        "en": "Repertoire"
+      },
+      "h": {
+        "kn": "ಇದುವರೆಗಿನ ಪ್ರಯೋಗಗಳು",
+        "en": "What we have staged"
+      },
+      "sub": {
+        "kn": "ಯಾವುದೇ ನಾಟಕದ ಮೇಲೆ ಒತ್ತಿ — ಕಥೆ, ತಂಡ, ವೇದಿಕೆಗಳ ವಿವರ ಸಿಗುತ್ತದೆ.",
+        "en": "Tap any play for the story, the credits and where it travelled."
+      }
     },
-    "foot.left": {
-      "kn": "© ೨೦೨೬ ಕಾಜಾಣ ರಂಗತಂಡ, ಬೆಂಗಳೂರು",
-      "en": "© 2026 Kaajana Theatre, Bengaluru"
+    "team": {
+      "eyebrow": {
+        "kn": "ತಂಡ",
+        "en": "The team"
+      },
+      "h": {
+        "kn": "ಪರದೆಯ ಮುಂದೆ ಮತ್ತು ಹಿಂದೆ",
+        "en": "In front of the curtain and behind it"
+      },
+      "sub": {
+        "kn": "ಒಂದು ಪ್ರಯೋಗ ನಿಲ್ಲುವುದು ಕಥೆ, ಬೆಳಕು, ಸಂಗೀತ, ಸೆಟ್ ಮತ್ತು ಸಮಯದ ಮೇಲೆ.",
+        "en": "A show stands on light, music, set and timing as much as on the actors."
+      }
     },
-    "foot.right": {
-      "kn": "ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.",
-      "en": "Nagarabhavi, Bengaluru."
-    },
-    "hero.badge": {
-      "kn": "ಹಲವು ವರ್ಷಗಳಿಂದ ಕರ್ನಾಟಕದ ವೇದಿಕೆಗಳಲ್ಲಿ",
-      "en": "On Karnataka stages since years"
-    },
-    "hero.quote": {
-      "kn": "",
-      "en": ""
-    },
-    "hero.titleLead": {
-      "kn": "ಕನ್ನಡ ರಂಗಭೂಮಿಯ",
-      "en": "A living voice for"
-    },
-    "hero.titleMark": {
-      "kn": "ದನಿ",
-      "en": "Kannada theatre"
-    },
-    "invite.eyebrow": {
-      "kn": "ಆಹ್ವಾನ",
-      "en": "Invite us"
-    },
-    "invite.h": {
-      "kn": "ನಿಮ್ಮ ವೇದಿಕೆಗೆ, ಶಾಲೆಗೆ, ಉತ್ಸವಕ್ಕೆ ಕಾಜಾಣ",
-      "en": "Bring Kaajana to your stage, school or festival"
-    },
-    "invite.sub": {
-      "kn": "",
-      "en": ""
-    },
-    "journey.eyebrow": {
-      "kn": "ಪ್ರಯಾಣ",
-      "en": "Journey"
-    },
-    "journey.h": {
-      "kn": "ಒಂದು ಓದುವ ಗುಂಪಿನಿಂದ ಇಲ್ಲಿಯವರೆಗೆ",
-      "en": "From a reading circle to here"
-    },
-    "journey.sub": {
-      "kn": "ತಂಡದ ದಾರಿಯಲ್ಲಿ ಬಂದ ಮುಖ್ಯ ನಿಲ್ದಾಣಗಳು.",
-      "en": "The stops that shaped the company."
-    },
-    "plays.eyebrow": {
-      "kn": "ನಾಟಕಗಳ ಪಟ್ಟಿ",
-      "en": "Repertoire"
-    },
-    "plays.h": {
-      "kn": "ಇದುವರೆಗಿನ ಪ್ರಯೋಗಗಳು",
-      "en": "What we have staged"
-    },
-    "plays.sub": {
-      "kn": "ಯಾವುದೇ ನಾಟಕದ ಮೇಲೆ ಒತ್ತಿ — ಕಥೆ, ತಂಡ, ವೇದಿಕೆಗಳ ವಿವರ ಸಿಗುತ್ತದೆ.",
-      "en": "Tap any play for the story, the credits and where it travelled."
-    },
-    "team.eyebrow": {
-      "kn": "ತಂಡ",
-      "en": "The team"
-    },
-    "team.h": {
-      "kn": "ಪರದೆಯ ಮುಂದೆ ಮತ್ತು ಹಿಂದೆ",
-      "en": "In front of the curtain and behind it"
-    },
-    "team.sub": {
-      "kn": "ಒಂದು ಪ್ರಯೋಗ ನಿಲ್ಲುವುದು ಕಥೆ, ಬೆಳಕು, ಸಂಗೀತ, ಸೆಟ್ ಮತ್ತು ಸಮಯದ ಮೇಲೆ.",
-      "en": "A show stands on light, music, set and timing as much as on the actors."
-    },
-    "voices.eyebrow": {
-      "kn": "ಪ್ರೇಕ್ಷಕರ ಮಾತು",
-      "en": "Voices"
-    },
-    "voices.h": {
-      "kn": "ನಮ್ಮ ಬಗ್ಗೆ ಬೇರೆಯವರು ಹೇಳಿದ್ದು",
-      "en": "What people have said"
+    "voices": {
+      "eyebrow": {
+        "kn": "ಪ್ರೇಕ್ಷಕರ ಮಾತು",
+        "en": "Voices"
+      },
+      "h": {
+        "kn": "ನಮ್ಮ ಬಗ್ಗೆ ಬೇರೆಯವರು ಹೇಳಿದ್ದು",
+        "en": "What people have said"
+      }
     }
   },
   "ledger": [
@@ -191,10 +211,6 @@
     {
       "y": 2024,
       "tag": "original",
-      "hue": [
-        "#FFE3BC",
-        "#FFC48A"
-      ],
       "img": "images/plays/maatha.jpg",
       "t": {
         "kn": "ಮಾತಾ",
@@ -239,10 +255,6 @@
     {
       "y": 2023,
       "tag": "children",
-      "hue": [
-        "#D6F3E7",
-        "#A8E6CF"
-      ],
       "img": "images/plays/timmakka.jpg",
       "t": {
         "kn": "ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ",
@@ -272,10 +284,6 @@
       "soon": true,
       "y": "",
       "tag": "",
-      "hue": [
-        "#EDE9FB",
-        "#DCD5F6"
-      ],
       "img": "",
       "t": {
         "kn": "ಮತ್ತಷ್ಟು ನಾಟಕಗಳ ಮಾಹಿತಿ - ಶೀಘ್ರದಲ್ಲಿ.",
@@ -350,9 +358,6 @@
   ],
   "leads": [
     {
-      "i": "ಬೇ",
-      "ci": "B",
-      "c": "#5B3CC4",
       "img": "images/beluru-raghunandan.jpg",
       "pos": "50% 28%",
       "n": {
@@ -366,12 +371,13 @@
       "b": {
         "kn": "ತಂಡವನ್ನು ಮುನ್ನಡೆಸುವವರು — ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ ಇವರದೇ. ಅವರ ರಂಗಪ್ರಯಾಣ ಮತ್ತು ತರಬೇತಿಯ ಬಗ್ಗೆ ಇಲ್ಲಿ ಮೂರು-ನಾಲ್ಕು ಸಾಲು ಸೇರಿಸಬಹುದು.",
         "en": "The one who steers the company — writing, directing and the shape of every production. Three or four lines about his theatre journey and training go here."
+      },
+      "mono": {
+        "kn": "ಬೇ",
+        "en": "B"
       }
     },
     {
-      "i": "ಲ",
-      "ci": "L",
-      "c": "#E85C8A",
       "img": "images/lakshmi-raghunandan.jpg",
       "pos": "50% 30%",
       "n": {
@@ -385,12 +391,13 @@
       "b": {
         "kn": "ಕಾಜಾಣ ರಂಗತಂಡದ ಸಂಸ್ಥಾಪಕರು. ತಂಡದ ಪ್ರಯೋಗಗಳಿಗೆ ಬೆಂಬಲ ಮತ್ತು ನಿರ್ಮಾಣದ ಜವಾಬ್ದಾರಿ ಇವರದೇ.",
         "en": "Founder of Kaajana. She backs the company and carries the producing side of every production."
+      },
+      "mono": {
+        "kn": "ಲ",
+        "en": "L"
       }
     },
     {
-      "i": "ಶ್ರೀ",
-      "ci": "S",
-      "c": "#57C4A5",
       "img": "images/srini-sampath-lakshmi.jpg",
       "pos": "50% 25%",
       "n": {
@@ -404,14 +411,15 @@
       "b": {
         "kn": "ರಂಗಸಜ್ಜಿಕೆ, ಬೆಳಕು, ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ.",
         "en": "Dates, venues, tours and the day-to-day running of the team. Any booking conversation starts here."
+      },
+      "mono": {
+        "kn": "ಶ್ರೀ",
+        "en": "S"
       }
     }
   ],
   "crew": [
     {
-      "i": "ರ",
-      "ci": "R",
-      "c": "#57C4A5",
       "img": "images/raviteja.jpg",
       "n": {
         "kn": "ರವಿತೇಜ",
@@ -424,12 +432,13 @@
       "b": {
         "kn": "ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.",
         "en": "Light, sound, set, stage management."
+      },
+      "mono": {
+        "kn": "ರ",
+        "en": "R"
       }
     },
     {
-      "i": "ಪ",
-      "ci": "P",
-      "c": "#FFA630",
       "img": "images/pavan.jpg",
       "n": {
         "kn": "ಪವನ್ ಸಿಹಿಮೊಗ್ಗೆ",
@@ -442,12 +451,13 @@
       "b": {
         "kn": "ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.",
         "en": "Light, sound, set, stage management."
+      },
+      "mono": {
+        "kn": "ಪ",
+        "en": "P"
       }
     },
     {
-      "i": "ಅ",
-      "ci": "A",
-      "c": "#5B3CC4",
       "img": "images/anitha.jpg",
       "n": {
         "kn": "ಅನಿತಾ",
@@ -460,12 +470,15 @@
       "b": {
         "kn": "ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.",
         "en": "Light, sound, set, stage management."
+      },
+      "mono": {
+        "kn": "ಅ",
+        "en": "A"
       }
     }
   ],
   "services": [
     {
-      "ic": "M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6",
       "t": {
         "kn": "ವೇದಿಕೆ ಪ್ರದರ್ಶನ",
         "en": "Stage performance"
@@ -473,10 +486,10 @@
       "d": {
         "kn": "ನಿಮ್ಮ ರಂಗಮಂದಿರದಲ್ಲಿ ಸಂಪೂರ್ಣ ಪ್ರಯೋಗ, ಬೆಳಕು-ಧ್ವನಿ ತಂಡದೊಂದಿಗೆ.",
         "en": "A full production at your venue, with our light and sound crew."
-      }
+      },
+      "icon": "stage"
     },
     {
-      "ic": "M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2ZM8 12h8M8 16h5",
       "t": {
         "kn": "ಶಾಲಾ ಕಾರ್ಯಾಗಾರ",
         "en": "School workshop"
@@ -484,10 +497,10 @@
       "d": {
         "kn": "ನಾಲ್ಕು ದಿನದಿಂದ ಆರು ವಾರದವರೆಗೆ — ಮಕ್ಕಳ ಜೊತೆ ಒಂದು ಸಣ್ಣ ನಾಟಕ ಕಟ್ಟುವುದು.",
         "en": "Four days to six weeks, ending with a short play the students build themselves."
-      }
+      },
+      "icon": "workshop"
     },
     {
-      "ic": "M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8",
       "t": {
         "kn": "ಬೀದಿ ನಾಟಕ ಅಭಿಯಾನ",
         "en": "Street theatre campaign"
@@ -495,10 +508,10 @@
       "d": {
         "kn": "ಒಂದು ವಿಷಯದ ಸುತ್ತ ಬರೆದು, ನಿಮ್ಮ ಬಡಾವಣೆಗಳಲ್ಲಿ ಆಡುತ್ತೇವೆ.",
         "en": "Written around your issue and played across your neighbourhoods."
-      }
+      },
+      "icon": "street"
     },
     {
-      "ic": "M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM21 21v-2a4 4 0 0 0-3-3.9",
       "t": {
         "kn": "ವಾರಾಂತ್ಯ ರಂಗ ತರಬೇತಿ",
         "en": "Weekend theatre class"
@@ -506,7 +519,8 @@
       "d": {
         "kn": "ಹೊಸಬರಿಗೆ ಶನಿವಾರದ ಎಂಟು ವಾರಗಳ ತರಬೇತಿ. ಅನುಭವ ಬೇಕಿಲ್ಲ.",
         "en": "Eight Saturdays for beginners. No experience needed."
-      }
+      },
+      "icon": "class"
     }
   ],
   "voices": [
@@ -545,50 +559,49 @@
     {
       "k": "Instagram",
       "href": "https://www.instagram.com/kaajaana_official/",
-      "ic": "M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01"
+      "icon": "instagram"
     },
     {
       "k": "YouTube",
       "href": "https://www.youtube.com/@kaajaana4339",
-      "ic": "M22 12s0-3.3-.4-4.9a2.6 2.6 0 0 0-1.8-1.8C18.2 4.9 12 4.9 12 4.9s-6.2 0-7.8.4a2.6 2.6 0 0 0-1.8 1.8C2 8.7 2 12 2 12s0 3.3.4 4.9a2.6 2.6 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8c.4-1.6.4-4.9.4-4.9ZM10 15.2l5-3.2-5-3.2v6.4Z"
+      "icon": "youtube"
     },
     {
       "k": "Facebook",
       "href": "https://www.facebook.com/profile.php?id=61571921651914",
-      "ic": "M14 8.5V6.6c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.2H8V12h2.6v9.8h3.1V12h2.6l.4-3.5H14Z"
+      "icon": "facebook"
     },
     {
       "k": "WhatsApp",
       "href": "https://wa.me/918431803866",
-      "ic": "M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5 5 16.2a8.5 8.5 0 1 1 15.5-4.6ZM8.9 8.6c-.3.7-.1 1.6.5 2.5.9 1.4 2.1 2.3 3.4 2.7.8.2 1.5.1 1.9-.3l.5-.6-1.7-1.1-.7.6c-.6-.3-1.4-1-1.8-1.8l.6-.7-1.1-1.7-.6.4Z"
+      "icon": "whatsapp"
     },
     {
       "k": "Email",
       "href": "mailto:kaajaana2017@gmail.com",
-      "ic": "M4 4h16v16H4zM4 7l8 6 8-6"
+      "icon": "email"
     }
   ],
   "reach": [
     {
-      "ic": "M4 4h16v16H4zM4 7l8 6 8-6",
       "k": {
         "kn": "ಇ-ಮೇಲ್",
         "en": "Email"
       },
       "v": "kaajaana2017@gmail.com",
-      "href": "mailto:kaajaana2017@gmail.com"
+      "href": "mailto:kaajaana2017@gmail.com",
+      "icon": "email"
     },
     {
-      "ic": "M22 16.9v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 18.6 18.6 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 4.8 3h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L9 10.7a15 15 0 0 0 5.7 5.7l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z",
       "k": {
         "kn": "ಬುಕಿಂಗ್ (ಶ್ರೀನಿ)",
         "en": "Bookings (Srini)"
       },
       "v": "+91 84318 03866",
-      "href": "tel:+918431803866"
+      "href": "tel:+918431803866",
+      "icon": "phone"
     },
     {
-      "ic": "M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7ZM12 11.5A2.5 2.5 0 1 0 12 6.5a2.5 2.5 0 0 0 0 5Z",
       "k": {
         "kn": "ರಿಹರ್ಸಲ್ ಜಾಗ",
         "en": "Rehearsal space"
@@ -597,16 +610,17 @@
         "kn": "ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.",
         "en": "Nagarbhavi, Bengaluru."
       },
-      "href": "https://www.google.com/maps/search/?api=1&query=Nagarbhavi%2C+Bengaluru"
+      "href": "https://www.google.com/maps/search/?api=1&query=Nagarbhavi%2C+Bengaluru",
+      "icon": "location"
     },
     {
-      "ic": "M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01",
       "k": {
         "kn": "ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್",
         "en": "Instagram"
       },
       "v": "@kaajaana_official",
-      "href": "https://www.instagram.com/kaajaana_official/"
+      "href": "https://www.instagram.com/kaajaana_official/",
+      "icon": "instagram"
     }
   ]
 }

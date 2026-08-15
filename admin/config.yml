@@ -1,0 +1,920 @@
+# ═══════════════════════════════════════════════════════════════════
+#  1. Paste the backend block DecapBridge generated for you ABOVE the
+#     "media_folder" line below, then delete this comment.
+#     It looks like:
+#
+#        backend:
+#          name: git-gateway
+#          identity_url: "https://decapbridge.com/sites/<your-site-id>"
+#          gateway_url: "https://gateway.decapbridge.com"
+#          commit_messages: ...
+#        logo_url: https://decapbridge.com/...
+#
+#  2. Do NOT add a leading slash to public_folder. The site lives at
+#     /kaajana/, so "/images" would resolve to the domain root and every
+#     uploaded image would 404.
+# ═══════════════════════════════════════════════════════════════════
+
+media_folder: "images"
+public_folder: "images"
+
+locale: "en"
+
+collections:
+- name: site
+  label: ಕಾಜಾಣ ಜಾಲತಾಣ · Kaajana website
+  editor:
+    preview: false
+  files:
+  - name: content
+    label: ಎಲ್ಲ ವಿಷಯ · All site content
+    file: content.json
+    format: json
+    fields:
+    - label: ಪಠ್ಯ · Page text
+      name: strings
+      widget: object
+      collapsed: true
+      fields:
+      - label: ನಮ್ಮ ಬಗ್ಗೆ · About
+        name: about
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Opening line
+          name: lead
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+        - label: Paragraph 1
+          name: p1
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+        - label: Paragraph 2
+          name: p2
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+      - label: ಟಿಕರ್ · Ticker
+        name: bell
+        widget: object
+        collapsed: true
+        fields:
+        - label: Ticker label
+          name: label
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+      - label: ಸಂಪರ್ಕ ವಿಭಾಗ · Contact section
+        name: contact
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Sub-heading
+          name: sub
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+      - label: ಅಡಿಟಿಪ್ಪಣಿ · Footer
+        name: foot
+        widget: object
+        collapsed: true
+        fields:
+        - label: Left line
+          name: left
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Right line
+          name: right
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+      - label: ಮುಖಪುಟ · Homepage
+        name: hero
+        widget: object
+        collapsed: true
+        fields:
+        - label: Top badge
+          name: badge
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Quote under the name
+          name: quote
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+        - label: Headline
+          name: titleLead
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Highlighted words
+          name: titleMark
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+      - label: ಆಹ್ವಾನ ವಿಭಾಗ · Invite section
+        name: invite
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Sub-heading
+          name: sub
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+      - label: ಪ್ರಯಾಣ ವಿಭಾಗ · Journey section
+        name: journey
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Sub-heading
+          name: sub
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+      - label: ನಾಟಕಗಳ ವಿಭಾಗ · Plays section
+        name: plays
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Sub-heading
+          name: sub
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+      - label: ತಂಡ ವಿಭಾಗ · Team section
+        name: team
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Sub-heading
+          name: sub
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: text
+            required: false
+          - label: English
+            name: en
+            widget: text
+            required: false
+      - label: ಪ್ರೇಕ್ಷಕರ ಮಾತು ವಿಭಾಗ · Testimonials section
+        name: voices
+        widget: object
+        collapsed: true
+        fields:
+        - label: Small label
+          name: eyebrow
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+        - label: Heading
+          name: h
+          widget: object
+          fields:
+          - label: ಕನ್ನಡ
+            name: kn
+            widget: string
+            required: false
+          - label: English
+            name: en
+            widget: string
+            required: false
+    - label: ಅಂಕಿ ಅಂಶ · Numbers strip
+      name: ledger
+      widget: list
+      collapsed: true
+      fields:
+      - label: Number
+        name: n
+        widget: number
+        required: false
+        value_type: int
+      - label: Suffix (e.g. +)
+        name: suffix
+        widget: string
+        required: false
+      - label: ಕನ್ನಡ label
+        name: kn
+        widget: string
+        required: false
+      - label: English label
+        name: en
+        widget: string
+        required: false
+      summary: '{{fields.n}} {{fields.en}}'
+    - label: ಟಿಕರ್ ಸಾಲುಗಳು · Ticker lines
+      name: upcoming
+      widget: list
+      collapsed: true
+      fields:
+      - label: ಕನ್ನಡ
+        name: kn
+        widget: string
+        required: false
+      - label: English
+        name: en
+        widget: string
+        required: false
+      summary: '{{fields.en}}'
+      hint: The scrolling strip under the hero
+    - label: ವರ್ಗಗಳು · Play categories
+      name: tags
+      widget: list
+      collapsed: true
+      fields:
+      - label: id — do not change once plays use it
+        name: id
+        widget: string
+        required: false
+      - label: ಕನ್ನಡ
+        name: kn
+        widget: string
+        required: false
+      - label: English
+        name: en
+        widget: string
+        required: false
+      summary: '{{fields.en}}'
+    - label: ನಾಟಕಗಳು · Plays
+      name: plays
+      widget: list
+      collapsed: true
+      fields:
+      - label: Poster image
+        name: img
+        widget: image
+        required: false
+        allow_multiple: false
+      - label: ನಾಟಕದ ಹೆಸರು · Play title
+        name: t
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: true
+        - label: English
+          name: en
+          widget: string
+          required: true
+      - label: ಒಂದು ಸಾಲು · One-line description
+        name: line
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: Year
+        name: y
+        widget: string
+        required: false
+      - label: Category
+        name: tag
+        widget: select
+        required: false
+        options:
+        - original
+        - adaptation
+        - children
+        - street
+      - label: Coming soon — grey placeholder card
+        name: soon
+        widget: boolean
+        required: false
+        default: false
+      - label: ಕಥೆ · Synopsis
+        name: story
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: text
+          required: false
+        - label: English
+          name: en
+          widget: text
+          required: false
+      - label: ರಚನೆ · Written by
+        name: writer
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: ನಿರ್ದೇಶನ · Directed by
+        name: dir
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: Runtime (minutes)
+        name: time
+        widget: string
+        required: false
+      - label: Cast size
+        name: cast
+        widget: string
+        required: false
+      - label: Performances
+        name: shows
+        widget: string
+        required: false
+      - label: ವೇದಿಕೆಗಳು · Staged at
+        name: venues
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: list
+          required: false
+        - label: English
+          name: en
+          widget: list
+          required: false
+      summary: '{{fields.t.en}}'
+    - label: ಮುಖ್ಯಸ್ಥರು · Leads
+      name: leads
+      widget: list
+      collapsed: true
+      fields:
+      - label: Photo
+        name: img
+        widget: image
+        required: false
+        allow_multiple: false
+      - label: Photo framing, e.g. 50% 30%
+        name: pos
+        widget: string
+        required: false
+        hint: Lower the second number to move the crop up
+      - label: ಹೆಸರು · Name
+        name: n
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: true
+        - label: English
+          name: en
+          widget: string
+          required: true
+      - label: ಪಾತ್ರ · Role
+        name: r
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: ಪರಿಚಯ · Bio
+        name: b
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: text
+          required: false
+        - label: English
+          name: en
+          widget: text
+          required: false
+      - label: ಮೊದಲಕ್ಷರ · Initials, used when there is no photo
+        name: mono
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      summary: '{{fields.n.en}}'
+      hint: The first person here also fronts the homepage hero
+    - label: ರಂಗದ ಹಿಂದೆ · Crew
+      name: crew
+      widget: list
+      collapsed: true
+      fields:
+      - label: Photo
+        name: img
+        widget: image
+        required: false
+        allow_multiple: false
+      - label: Photo framing, e.g. 50% 30%
+        name: pos
+        widget: string
+        required: false
+        hint: Lower the second number to move the crop up
+      - label: ಹೆಸರು · Name
+        name: n
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: true
+        - label: English
+          name: en
+          widget: string
+          required: true
+      - label: ಪಾತ್ರ · Role
+        name: r
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: ಪರಿಚಯ · Bio
+        name: b
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: text
+          required: false
+        - label: English
+          name: en
+          widget: text
+          required: false
+      - label: ಮೊದಲಕ್ಷರ · Initials, used when there is no photo
+        name: mono
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      summary: '{{fields.n.en}}'
+      hint: The smaller grid below the leads
+    - label: ಪ್ರಯಾಣ · Journey milestones
+      name: journey
+      widget: list
+      collapsed: true
+      fields:
+      - label: Year
+        name: y
+        widget: string
+        required: false
+      - label: ಶೀರ್ಷಿಕೆ · Title
+        name: h
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: ವಿವರ · Description
+        name: p
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: text
+          required: false
+        - label: English
+          name: en
+          widget: text
+          required: false
+      summary: '{{fields.y}} {{fields.h.en}}'
+    - label: ಕಾರ್ಯಾಗಾರ · What we offer
+      name: services
+      widget: list
+      collapsed: true
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        required: false
+        options:
+        - stage
+        - workshop
+        - street
+        - class
+      - label: ಶೀರ್ಷಿಕೆ · Title
+        name: t
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: ವಿವರ · Description
+        name: d
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: text
+          required: false
+        - label: English
+          name: en
+          widget: text
+          required: false
+      summary: '{{fields.t.en}}'
+    - label: ಪ್ರೇಕ್ಷಕರ ಮಾತು · Testimonials
+      name: voices
+      widget: list
+      collapsed: true
+      fields:
+      - label: ಉಲ್ಲೇಖ · Quote
+        name: q
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: text
+          required: false
+        - label: English
+          name: en
+          widget: text
+          required: false
+      - label: ಯಾರು · Who said it
+        name: w
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      summary: '{{fields.w.en}}'
+    - label: ಸಾಮಾಜಿಕ ಜಾಲತಾಣ · Social links
+      name: social
+      widget: list
+      collapsed: true
+      fields:
+      - label: Platform
+        name: icon
+        widget: select
+        required: false
+        options:
+        - instagram
+        - youtube
+        - facebook
+        - whatsapp
+        - email
+      - label: Name shown on hover
+        name: k
+        widget: string
+        required: false
+      - label: Link
+        name: href
+        widget: string
+        required: false
+        hint: 'Full https:// link, or mailto: / https://wa.me/91…'
+      summary: '{{fields.k}}'
+    - label: ಸಂಪರ್ಕ ವಿವರ · Contact rows
+      name: reach
+      widget: list
+      collapsed: true
+      fields:
+      - label: Icon
+        name: icon
+        widget: select
+        required: false
+        options:
+        - email
+        - phone
+        - location
+        - instagram
+      - label: ಲೇಬಲ್ · Label
+        name: k
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: ತೋರಿಸುವ ಪಠ್ಯ · Displayed text
+        name: v
+        widget: object
+        fields:
+        - label: ಕನ್ನಡ
+          name: kn
+          widget: string
+          required: false
+        - label: English
+          name: en
+          widget: string
+          required: false
+      - label: Link
+        name: href
+        widget: string
+        required: false
+      summary: '{{fields.k.en}}'
+    - label: ಫಾರ್ಮ್ ಆಯ್ಕೆಗಳು · Contact form reasons
+      name: whyOptions
+      widget: list
+      collapsed: true
+      fields:
+      - label: ಕನ್ನಡ
+        name: kn
+        widget: string
+        required: false
+      - label: English
+        name: en
+        widget: string
+        required: false
+      summary: '{{fields.en}}'
