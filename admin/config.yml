@@ -482,11 +482,11 @@ collections:
       - label: ಕನ್ನಡ
         name: kn
         widget: string
-        required: false
+        required: true
       - label: English
         name: en
         widget: string
-        required: false
+        required: true
       summary: '{{fields.en}}'
       hint: The scrolling strip under the hero
     - label: ವರ್ಗಗಳು · Play categories
@@ -497,15 +497,15 @@ collections:
       - label: id — do not change once plays use it
         name: id
         widget: string
-        required: false
+        required: true
       - label: ಕನ್ನಡ
         name: kn
         widget: string
-        required: false
+        required: true
       - label: English
         name: en
         widget: string
-        required: false
+        required: true
       summary: '{{fields.en}}'
     - label: ನಾಟಕಗಳು · Plays
       name: plays
@@ -536,11 +536,11 @@ collections:
         - label: ಕನ್ನಡ
           name: kn
           widget: string
-          required: false
+          required: true
         - label: English
           name: en
           widget: string
-          required: false
+          required: true
       - label: Year
         name: y
         widget: string
@@ -634,7 +634,10 @@ collections:
         name: pos
         widget: string
         required: false
-        hint: Lower the second number to move the crop up
+        hint: Two percentages, e.g. 50% 30%. Lower the second number to move the crop up.
+        pattern:
+        - ^\s*\d{1,3}%\s+\d{1,3}%\s*$|^$
+        - Use two percentages, e.g. 50% 30%
       - label: ಹೆಸರು · Name
         name: n
         widget: object
@@ -654,11 +657,11 @@ collections:
         - label: ಕನ್ನಡ
           name: kn
           widget: string
-          required: false
+          required: true
         - label: English
           name: en
           widget: string
-          required: false
+          required: true
       - label: ಪರಿಚಯ · Bio
         name: b
         widget: object
@@ -699,7 +702,10 @@ collections:
         name: pos
         widget: string
         required: false
-        hint: Lower the second number to move the crop up
+        hint: Two percentages, e.g. 50% 30%. Lower the second number to move the crop up.
+        pattern:
+        - ^\s*\d{1,3}%\s+\d{1,3}%\s*$|^$
+        - Use two percentages, e.g. 50% 30%
       - label: ಹೆಸರು · Name
         name: n
         widget: object
@@ -719,11 +725,11 @@ collections:
         - label: ಕನ್ನಡ
           name: kn
           widget: string
-          required: false
+          required: true
         - label: English
           name: en
           widget: string
-          required: false
+          required: true
       - label: ಪರಿಚಯ · Bio
         name: b
         widget: object
@@ -792,7 +798,7 @@ collections:
       - label: Icon
         name: icon
         widget: select
-        required: false
+        required: true
         options:
         - stage
         - workshop
@@ -871,12 +877,15 @@ collections:
       - label: Name shown on hover
         name: k
         widget: string
-        required: false
+        required: true
       - label: Link
         name: href
         widget: string
-        required: false
+        required: true
         hint: 'Full https:// link, or mailto: / https://wa.me/91…'
+        pattern:
+        - ^(https?://|mailto:|tel:)
+        - 'Must start with https:// , mailto: or tel:'
       summary: '{{fields.k}}'
     - label: ಸಂಪರ್ಕ ವಿವರ · Contact rows
       name: reach
@@ -886,7 +895,7 @@ collections:
       - label: Icon
         name: icon
         widget: select
-        required: false
+        required: true
         options:
         - email
         - phone
@@ -919,7 +928,10 @@ collections:
       - label: Link
         name: href
         widget: string
-        required: false
+        required: true
+        pattern:
+        - ^(https?://|mailto:|tel:)
+        - 'Must start with https:// , mailto: or tel:'
       summary: '{{fields.k.en}}'
     - label: ಫಾರ್ಮ್ ಆಯ್ಕೆಗಳು · Contact form reasons
       name: whyOptions

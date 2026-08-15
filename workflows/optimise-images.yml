@@ -1,0 +1,55 @@
+name: Optimise images
+
+# Runs when anything lands in images/ — including uploads made from the CMS.
+on:
+  push:
+    branches: [main]
+    paths: ['images/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimise-images
+  cancel-in-progress: false
+
+jobs:
+  optimise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure ImageMagick
+        run: command -v mogrify >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick)
+
+      - name: Resize, strip EXIF, compress
+        run: |
+          set -euo pipefail
+          MAX=1600                     # longest edge, in pixels
+          MAXKB=400                    # files under this are left alone
+          MARK="kaajana-optimised"     # stamped after processing, so nothing is recompressed twice
+          while IFS= read -r -d '' f; do
+            note=$(identify -format '%c' "$f[0]" 2>/dev/null || true)
+            [[ "$note" == *"$MARK"* ]] && continue
+            w=$(identify -format '%w' "$f[0]" 2>/dev/null || echo 0)
+            h=$(identify -format '%h' "$f[0]" 2>/dev/null || echo 0)
+            kb=$(( $(stat -c%s "$f") / 1024 ))
+            long=$(( w > h ? w : h ))
+            if [ "$long" -le "$MAX" ] && [ "$kb" -le "$MAXKB" ]; then continue; fi
+            echo "optimising $f (${w}x${h}, ${kb}KB)"
+            mogrify -auto-orient -strip -resize "${MAX}x${MAX}>" -quality 82 -interlace Plane \
+                    -set comment "$MARK" "$f"
+            echo "   -> $(identify -format '%wx%h' "$f[0]"), $(( $(stat -c%s "$f") / 1024 ))KB"
+          done < <(find images -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0)
+
+      - name: Commit the optimised files
+        run: |
+          if [ -n "$(git status --porcelain images)" ]; then
+            git config user.name  "kaajana-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add images
+            git commit -m "Optimise uploaded images [skip ci]"
+            git push
+          else
+            echo "nothing to optimise"
+          fi
