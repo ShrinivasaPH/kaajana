@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "strings": {
     "about": {
       "eyebrow": {
@@ -310,6 +311,8 @@
       "shows": ""
     }
   ],
+=======
+>>>>>>> 0b547ac51b1d9999b6fe4df66739cc43e6303590
   "journey": [
     {
       "y": 2013,
@@ -353,68 +356,6 @@
       "p": {
         "kn": "ನಾಗರಬಾವಿಯಲ್ಲಿ ರಿಹರ್ಸಲ್ ಹಾಲ್. ಹೊಸಜಾಗ. ಹೊಸ ನಾಟಕಗಳು.",
         "en": "A rehearsal hall in Nagarabhavi. New space. New plays."
-      }
-    }
-  ],
-  "leads": [
-    {
-      "img": "images/beluru-raghunandan.jpg",
-      "pos": "50% 28%",
-      "n": {
-        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್",
-        "en": "Dr. Beluru Raghunandan"
-      },
-      "r": {
-        "kn": "ನಿರ್ದೇಶಕರು",
-        "en": "Director"
-      },
-      "b": {
-        "kn": "ತಂಡವನ್ನು ಮುನ್ನಡೆಸುವವರು — ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ ಇವರದೇ. ಅವರ ರಂಗಪ್ರಯಾಣ ಮತ್ತು ತರಬೇತಿಯ ಬಗ್ಗೆ ಇಲ್ಲಿ ಮೂರು-ನಾಲ್ಕು ಸಾಲು ಸೇರಿಸಬಹುದು.",
-        "en": "The one who steers the company — writing, directing and the shape of every production. Three or four lines about his theatre journey and training go here."
-      },
-      "mono": {
-        "kn": "ಬೇ",
-        "en": "B"
-      }
-    },
-    {
-      "img": "images/lakshmi-raghunandan.jpg",
-      "pos": "50% 30%",
-      "n": {
-        "kn": "ಲಕ್ಷ್ಮಿ ರಘುನಂದನ್",
-        "en": "Lakshmi Raghunandan"
-      },
-      "r": {
-        "kn": "ಸಂಸ್ಥಾಪಕರು · ನಿರ್ಮಾಪಕರು",
-        "en": "Founder · Producer"
-      },
-      "b": {
-        "kn": "ಕಾಜಾಣ ರಂಗತಂಡದ ಸಂಸ್ಥಾಪಕರು. ತಂಡದ ಪ್ರಯೋಗಗಳಿಗೆ ಬೆಂಬಲ ಮತ್ತು ನಿರ್ಮಾಣದ ಜವಾಬ್ದಾರಿ ಇವರದೇ.",
-        "en": "Founder of Kaajana. She backs the company and carries the producing side of every production."
-      },
-      "mono": {
-        "kn": "ಲ",
-        "en": "L"
-      }
-    },
-    {
-      "img": "images/srini-sampath-lakshmi.jpg",
-      "pos": "50% 25%",
-      "n": {
-        "kn": "ಶ್ರೀನಿ ಸಂಪತ್ ಲಕ್ಷ್ಮಿ",
-        "en": "Srini Sampath Lakshmi"
-      },
-      "r": {
-        "kn": "ಮುಖ್ಯೋಪಾಧ್ಯಾಯರು",
-        "en": "Principal"
-      },
-      "b": {
-        "kn": "ರಂಗಸಜ್ಜಿಕೆ, ಬೆಳಕು, ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ.",
-        "en": "Dates, venues, tours and the day-to-day running of the team. Any booking conversation starts here."
-      },
-      "mono": {
-        "kn": "ಶ್ರೀ",
-        "en": "S"
       }
     }
   ],
@@ -477,52 +418,6 @@
       }
     }
   ],
-  "services": [
-    {
-      "t": {
-        "kn": "ವೇದಿಕೆ ಪ್ರದರ್ಶನ",
-        "en": "Stage performance"
-      },
-      "d": {
-        "kn": "ನಿಮ್ಮ ರಂಗಮಂದಿರದಲ್ಲಿ ಸಂಪೂರ್ಣ ಪ್ರಯೋಗ, ಬೆಳಕು-ಧ್ವನಿ ತಂಡದೊಂದಿಗೆ.",
-        "en": "A full production at your venue, with our light and sound crew."
-      },
-      "icon": "stage"
-    },
-    {
-      "t": {
-        "kn": "ಶಾಲಾ ಕಾರ್ಯಾಗಾರ",
-        "en": "School workshop"
-      },
-      "d": {
-        "kn": "ನಾಲ್ಕು ದಿನದಿಂದ ಆರು ವಾರದವರೆಗೆ — ಮಕ್ಕಳ ಜೊತೆ ಒಂದು ಸಣ್ಣ ನಾಟಕ ಕಟ್ಟುವುದು.",
-        "en": "Four days to six weeks, ending with a short play the students build themselves."
-      },
-      "icon": "workshop"
-    },
-    {
-      "t": {
-        "kn": "ಬೀದಿ ನಾಟಕ ಅಭಿಯಾನ",
-        "en": "Street theatre campaign"
-      },
-      "d": {
-        "kn": "ಒಂದು ವಿಷಯದ ಸುತ್ತ ಬರೆದು, ನಿಮ್ಮ ಬಡಾವಣೆಗಳಲ್ಲಿ ಆಡುತ್ತೇವೆ.",
-        "en": "Written around your issue and played across your neighbourhoods."
-      },
-      "icon": "street"
-    },
-    {
-      "t": {
-        "kn": "ವಾರಾಂತ್ಯ ರಂಗ ತರಬೇತಿ",
-        "en": "Weekend theatre class"
-      },
-      "d": {
-        "kn": "ಹೊಸಬರಿಗೆ ಶನಿವಾರದ ಎಂಟು ವಾರಗಳ ತರಬೇತಿ. ಅನುಭವ ಬೇಕಿಲ್ಲ.",
-        "en": "Eight Saturdays for beginners. No experience needed."
-      },
-      "icon": "class"
-    }
-  ],
   "voices": [
     {
       "q": {
@@ -553,6 +448,164 @@
         "kn": "ಉತ್ಸವ ಸಂಚಾಲಕ, ಉತ್ತರ ಕರ್ನಾಟಕ",
         "en": "Festival programmer, north Karnataka"
       }
+    }
+  ],
+  "strings": {
+    "contact": {
+      "eyebrow": {
+        "kn": "ಸಂಪರ್ಕ",
+        "en": "Contact"
+      },
+      "h": {
+        "kn": "ಮಾತಾಡೋಣ",
+        "en": "Let’s talk"
+      },
+      "sub": {
+        "kn": "ಬುಕಿಂಗ್, ಕಾರ್ಯಾಗಾರ, ಸಹಯೋಗ ಅಥವಾ ತಂಡಕ್ಕೆ ಸೇರುವ ಆಸಕ್ತಿ — ಯಾವುದಕ್ಕೂ ಬರೆಯಿರಿ.",
+        "en": "Bookings, workshops, collaborations, or joining the company — write to us."
+      }
+    },
+    "journey": {
+      "eyebrow": {
+        "kn": "ಪ್ರಯಾಣ",
+        "en": "Journey"
+      },
+      "h": {
+        "kn": "ಒಂದು ಓದುವ ಗುಂಪಿನಿಂದ ಇಲ್ಲಿಯವರೆಗೆ",
+        "en": "From a reading circle to here"
+      },
+      "sub": {
+        "kn": "ತಂಡದ ದಾರಿಯಲ್ಲಿ ಬಂದ ಮುಖ್ಯ ನಿಲ್ದಾಣಗಳು.",
+        "en": "The stops that shaped the company."
+      }
+    },
+    "voices": {
+      "eyebrow": {
+        "kn": "ಪ್ರೇಕ್ಷಕರ ಮಾತು",
+        "en": "Voices"
+      },
+      "h": {
+        "kn": "ನಮ್ಮ ಬಗ್ಗೆ ಬೇರೆಯವರು ಹೇಳಿದ್ದು",
+        "en": "What people have said"
+      }
+    },
+    "bell": {
+      "label": {
+        "kn": "Info",
+        "en": "Info"
+      }
+    },
+    "invite": {
+      "eyebrow": {
+        "kn": "ಆಹ್ವಾನ",
+        "en": "Invite us"
+      },
+      "h": {
+        "kn": "ನಿಮ್ಮ ವೇದಿಕೆಗೆ, ಶಾಲೆಗೆ, ಉತ್ಸವಕ್ಕೆ ಕಾಜಾಣ",
+        "en": "Bring Kaajana to your stage, school or festival"
+      },
+      "sub": {
+        "kn": "",
+        "en": ""
+      }
+    },
+    "about": {
+      "eyebrow": {
+        "kn": "ನಮ್ಮ ಬಗ್ಗೆ",
+        "en": "About us"
+      },
+      "h": {
+        "kn": "ಕಾಜಾಣ",
+        "en": "Kaajana"
+      },
+      "lead": {
+        "kn": "ಸಮಾಜದ ದನಿಯನ್ನು ವೇದಿಕೆಯ ಮೇಲೆ ರೂಪವಾಗಿಸುವುದು.",
+        "en": "Kaajana — shaping the pulse of society on stage."
+      },
+      "p1": {},
+      "p2": {
+        "kn": "ಪ್ರತಿ ಪ್ರಯೋಗಕ್ಕೂ ಮೊದಲು ಹಲವು ವಾರಗಳ ಕಾರ್ಯಾಗಾರ, ಪೂರ್ಣ ಓದು ಮತ್ತು ರಿಹರ್ಸಲ್.",
+        "en": "Every production runs on the same method: daily reading, workshop, and an open rehearsal with the crew before opening night."
+      }
+    },
+    "foot": {
+      "left": {
+        "kn": "© ೨೦೨೬ ಕಾಜಾಣ ರಂಗತಂಡ, ಬೆಂಗಳೂರು",
+        "en": "© 2026 Kaajana Theatre, Bengaluru"
+      },
+      "right": {
+        "kn": "ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.",
+        "en": "Nagarabhavi, Bengaluru."
+      }
+    },
+    "hero": {
+      "badge": {
+        "kn": "ಹಲವು ವರ್ಷಗಳಿಂದ ಕರ್ನಾಟಕದ ವೇದಿಕೆಗಳಲ್ಲಿ",
+        "en": "On Karnataka stages since years"
+      },
+      "quote": {
+        "kn": "",
+        "en": ""
+      },
+      "titleLead": {
+        "kn": "ಕನ್ನಡ ರಂಗಭೂಮಿಯ",
+        "en": "A living voice for"
+      },
+      "titleMark": {
+        "kn": "ದನಿ",
+        "en": "Kannada theatre"
+      }
+    },
+    "team": {
+      "eyebrow": {
+        "kn": "ತಂಡ",
+        "en": "The team"
+      },
+      "h": {
+        "kn": "ಪರದೆಯ ಮುಂದೆ ಮತ್ತು ಹಿಂದೆ",
+        "en": "In front of the curtain and behind it"
+      },
+      "sub": {
+        "kn": "ಒಂದು ಪ್ರಯೋಗ ನಿಲ್ಲುವುದು ಕಥೆ, ಬೆಳಕು, ಸಂಗೀತ, ಸೆಟ್ ಮತ್ತು ಸಮಯದ ಮೇಲೆ.",
+        "en": "A show stands on light, music, set and timing as much as on the actors."
+      }
+    },
+    "plays": {
+      "eyebrow": {
+        "kn": "ನಾಟಕಗಳ ಪಟ್ಟಿ",
+        "en": "Repertoire"
+      },
+      "h": {
+        "kn": "ಇದುವರೆಗಿನ ಪ್ರಯೋಗಗಳು",
+        "en": "What we have staged"
+      },
+      "sub": {
+        "kn": "ಯಾವುದೇ ನಾಟಕದ ಮೇಲೆ ಒತ್ತಿ — ಕಥೆ, ತಂಡ, ವೇದಿಕೆಗಳ ವಿವರ ಸಿಗುತ್ತದೆ.",
+        "en": "Tap any play for the story, the credits and where it travelled."
+      }
+    }
+  },
+  "ledger": [
+    {
+      "n": 14,
+      "kn": "ವೇದಿಕೆಗೆ ಬಂದ ನಾಟಕಗಳು",
+      "en": "plays staged"
+    },
+    {
+      "n": 230,
+      "suffix": "+",
+      "kn": "ಪ್ರದರ್ಶನಗಳು",
+      "en": "performances"
+    },
+    {
+      "n": 11,
+      "kn": "ಊರುಗಳು ಮತ್ತು ಉತ್ಸವಗಳು",
+      "en": "cities and festivals"
+    },
+    {
+      "n": 40,
+      "kn": "ಕಲಾವಿದರು ಮತ್ತು ತಂತ್ರಜ್ಞರು",
+      "en": "artists and technicians"
     }
   ],
   "social": [
@@ -621,6 +674,299 @@
       "v": "@kaajaana_official",
       "href": "https://www.instagram.com/kaajaana_official/",
       "icon": "instagram"
+    }
+  ],
+  "whyOptions": [
+    {
+      "kn": "ಪ್ರದರ್ಶನ ಬುಕಿಂಗ್",
+      "en": "Book a performance"
+    },
+    {
+      "kn": "ಶಾಲೆ / ಕಾಲೇಜು ಕಾರ್ಯಾಗಾರ",
+      "en": "School or college workshop"
+    },
+    {
+      "kn": "ಸಹಯೋಗ",
+      "en": "Collaboration"
+    },
+    {
+      "kn": "ತಂಡಕ್ಕೆ ಸೇರಬೇಕು",
+      "en": "Join the company"
+    },
+    {
+      "kn": "ಬೇರೆ",
+      "en": "Something else"
+    }
+  ],
+  "leads": [
+    {
+      "img": "images/beluru-raghunandan.jpg",
+      "pos": "50% 28%",
+      "n": {
+        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್",
+        "en": "Dr. Beluru Raghunandan"
+      },
+      "r": {
+        "kn": "ನಿರ್ದೇಶಕರು",
+        "en": "Director"
+      },
+      "b": {
+        "kn": "ತಂಡವನ್ನು ಮುನ್ನಡೆಸುವವರು — ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ ಇವರದೇ. ಅವರ ರಂಗಪ್ರಯಾಣ ಮತ್ತು ತರಬೇತಿಯ ಬಗ್ಗೆ ಇಲ್ಲಿ ಮೂರು-ನಾಲ್ಕು ಸಾಲು ಸೇರಿಸಬಹುದು.",
+        "en": "The one who steers the company — writing, directing and the shape of every production. Three or four lines about his theatre journey and training go here."
+      },
+      "mono": {
+        "kn": "ಬೇ",
+        "en": "B"
+      }
+    },
+    {
+      "img": "images/lakshmi-raghunandan.jpg",
+      "pos": "50% 30%",
+      "n": {
+        "kn": "ಲಕ್ಷ್ಮಿ ರಘುನಂದನ್",
+        "en": "Lakshmi Raghunandan"
+      },
+      "r": {
+        "kn": "ಸಂಸ್ಥಾಪಕರು · ನಿರ್ಮಾಪಕರು",
+        "en": "Founder · Producer"
+      },
+      "b": {
+        "kn": "ಕಾಜಾಣ ರಂಗತಂಡದ ಸಂಸ್ಥಾಪಕರು. ತಂಡದ ಪ್ರಯೋಗಗಳಿಗೆ ಬೆಂಬಲ ಮತ್ತು ನಿರ್ಮಾಣದ ಜವಾಬ್ದಾರಿ ಇವರದೇ.",
+        "en": "Founder of Kaajana. She backs the company and carries the producing side of every production."
+      },
+      "mono": {
+        "kn": "ಲ",
+        "en": "L"
+      }
+    },
+    {
+      "img": "images/srini-sampath-lakshmi.jpg",
+      "pos": "50% 25%",
+      "n": {
+        "kn": "ಶ್ರೀನಿ ಸಂಪತ್ ಲಕ್ಷ್ಮಿ",
+        "en": "Srini Sampath Lakshmi"
+      },
+      "r": {
+        "kn": "ಮುಖ್ಯೋಪಾಧ್ಯಾಯರು",
+        "en": "Principal"
+      },
+      "b": {
+        "kn": "ರಂಗಸಜ್ಜಿಕೆ, ಬೆಳಕು, ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ.",
+        "en": "Dates, venues, tours and the day-to-day running of the team. Any booking conversation starts here."
+      },
+      "mono": {
+        "kn": "ಶ್ರೀ",
+        "en": "S"
+      }
+    }
+  ],
+  "tags": [
+    {
+      "id": "original",
+      "kn": "ಸ್ವತಂತ್ರ ರಚನೆ",
+      "en": "Original"
+    },
+    {
+      "id": "adaptation",
+      "kn": "ರೂಪಾಂತರ",
+      "en": "Adaptation"
+    },
+    {
+      "id": "children",
+      "kn": "ಮಕ್ಕಳ ನಾಟಕ",
+      "en": "For children"
+    },
+    {
+      "id": "street",
+      "kn": "ಬೀದಿ ನಾಟಕ",
+      "en": "Street theatre"
+    }
+  ],
+  "upcoming": [
+    {
+      "kn": "ಮಾಹಿತಿ ಶೀಘ್ರದಲ್ಲಿ.",
+      "en": "Information coming soon."
+    }
+  ],
+  "services": [
+    {
+      "t": {
+        "kn": "ವೇದಿಕೆ ಪ್ರದರ್ಶನ",
+        "en": "Stage performance"
+      },
+      "d": {
+        "kn": "ನಿಮ್ಮ ರಂಗಮಂದಿರದಲ್ಲಿ ಸಂಪೂರ್ಣ ಪ್ರಯೋಗ, ಬೆಳಕು-ಧ್ವನಿ ತಂಡದೊಂದಿಗೆ.",
+        "en": "A full production at your venue, with our light and sound crew."
+      },
+      "icon": "stage"
+    },
+    {
+      "t": {
+        "kn": "ಶಾಲಾ ಕಾರ್ಯಾಗಾರ",
+        "en": "School workshop"
+      },
+      "d": {
+        "kn": "ನಾಲ್ಕು ದಿನದಿಂದ ಆರು ವಾರದವರೆಗೆ — ಮಕ್ಕಳ ಜೊತೆ ಒಂದು ಸಣ್ಣ ನಾಟಕ ಕಟ್ಟುವುದು.",
+        "en": "Four days to six weeks, ending with a short play the students build themselves."
+      },
+      "icon": "workshop"
+    },
+    {
+      "t": {
+        "kn": "ಬೀದಿ ನಾಟಕ ಅಭಿಯಾನ",
+        "en": "Street theatre campaign"
+      },
+      "d": {
+        "kn": "ಒಂದು ವಿಷಯದ ಸುತ್ತ ಬರೆದು, ನಿಮ್ಮ ಬಡಾವಣೆಗಳಲ್ಲಿ ಆಡುತ್ತೇವೆ.",
+        "en": "Written around your issue and played across your neighbourhoods."
+      },
+      "icon": "street"
+    },
+    {
+      "t": {
+        "kn": "ವಾರಾಂತ್ಯ ರಂಗ ತರಬೇತಿ",
+        "en": "Weekend theatre class"
+      },
+      "d": {
+        "kn": "ಹೊಸಬರಿಗೆ ಶನಿವಾರದ ಎಂಟು ವಾರಗಳ ತರಬೇತಿ. ಅನುಭವ ಬೇಕಿಲ್ಲ.",
+        "en": "Eight Saturdays for beginners. No experience needed."
+      },
+      "icon": "class"
+    }
+  ],
+  "plays": [
+    {
+      "img": "images/plays/maatha.jpg",
+      "venues": {
+        "kn": [
+          "ರಂಗ ಶಂಕರ",
+          "ಕೆ. ಎಚ್. ಕಲಾಸೌಧ",
+          "ರವೀಂದ್ರ ಕಲಾಕ್ಷೇತ್ರ",
+          "ನಯನ ರಂಗಮಂದಿರ",
+          "ಕಲಾಗ್ರಾಮ"
+        ],
+        "en": [
+          "Ranga Shankara",
+          "K.H. Kalasoudha",
+          "Ravindra Kalakshetra",
+          "Nayana Rangamandira",
+          "Kalagrama"
+        ]
+      },
+      "dir": {
+        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್",
+        "en": "Dr. Beluru Raghunandan"
+      },
+      "time": 120,
+      "writer": {
+        "kn": "ಹಲವು ಕೃತಿಗಳು ಹಾಗೂ ಅವರ ಸಂದರ್ಶನಗಳನ್ನು ಆಧರಿಸಿದ್ದು.",
+        "en": "Based on books works and interviews of Manjamma."
+      },
+      "t": {
+        "kn": "ಮಾತಾ",
+        "en": "Maatha"
+      },
+      "line": {
+        "kn": "ಪದ್ಮಶ್ರೀ. ಬಿ. ಜೋಗತಿ ಮಂಜಮ್ಮ ಅವರ ಜೀವನಾಧಾರಿತ.",
+        "en": "Based on the life of Padmashree B. Jogathi Manjamma."
+      },
+      "story": {
+        "kn": "ಪದ್ಮಶ್ರೀ ಬಿ. ಜೋಗತಿ ಮಂಜಮ್ಮ ಅವರ ಜೀವನವನ್ನು ಆಧರಿಸಿ ರಚಿಸಲಾದ ನಾಟಕ. ಮಂಜಮ್ಮ ಅವರು ತಮ್ಮ ಜೀವನದಲ್ಲಿ ಎದುರಿಸಿದ ಸವಾಲುಗಳು, ಸಾಧನೆಗಳು ಮತ್ತು ಸಮಾಜದ ಮೇಲೆ ಅವರ ಪ್ರಭಾವವನ್ನು ಚಿತ್ರಿಸುತ್ತದೆ.",
+        "en": "A play based on the life of Padmashree B. Jogathi Manjamma. It portrays the challenges, achievements, and societal impact of Manjamma’s life."
+      },
+      "shows": "ಕರ್ನಾಟಕದಾದ್ಯಂತ",
+      "y": 2024,
+      "tag": "original",
+      "cast": 1
+    },
+    {
+      "img": "images/plays/timmakka.jpg",
+      "dir": {
+        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್",
+        "en": "Dr. Beluru Raghunandan"
+      },
+      "time": 55,
+      "writer": {
+        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್",
+        "en": "Dr. Beluru Raghunandan"
+      },
+      "t": {
+        "kn": "ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ",
+        "en": "Saalu Maragala Taayi Timmakka"
+      },
+      "line": {
+        "kn": "ವೃಕ್ಷಮಾತೆಯ ಕಥನ.",
+        "en": "A tale of the tree mother"
+      },
+      "story": {
+        "kn": "ಜೀವನದಲ್ಲಿ ಹಲವು ಕಷ್ಟಗಳನ್ನು ಎದುರಿಸಿದರೂ ನೂರಾರು ಮರಗಳನ್ನು ನೆಟ್ಟು ತನ್ನ ಮಕ್ಕಳಂತೆ ಸಲುಹಿ, ಹಲವು ದಾಖಲೆಗಳನ್ನು ಹೊಂದಿದ ತಿಮ್ಮಕ್ಕ ಅವರ ಕುರಿತಾದ ನಾಟಕ.",
+        "en": "A play about Timmakka, who faced many hardships in life but planted hundreds of trees and nurtured them like her own children, earning several records."
+      },
+      "shows": 64,
+      "y": 2023,
+      "tag": "adaptation",
+      "cast": 5
+    },
+    {
+      "img": "",
+      "dir": {
+        "kn": "",
+        "en": ""
+      },
+      "time": "",
+      "writer": {
+        "kn": "",
+        "en": ""
+      },
+      "t": {
+        "kn": "ಮತ್ತಷ್ಟು ನಾಟಕಗಳ ಮಾಹಿತಿ - ಶೀಘ್ರದಲ್ಲಿ.",
+        "en": "More plays information - coming soon."
+      },
+      "line": {
+        "kn": "ಪರದೆಯ ಹಿಂದೆ",
+        "en": "Behind the curtain"
+      },
+      "story": {
+        "kn": "",
+        "en": ""
+      },
+      "shows": "",
+      "y": "",
+      "tag": "",
+      "soon": true,
+      "cast": ""
+    },
+    {
+      "img": "images/panchavarne-poster-2.png",
+      "venues": {
+        "kn": []
+      },
+      "dir": {
+        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್",
+        "en": "Dr. Beluru Raghunandan"
+      },
+      "time": "90",
+      "writer": {
+        "en": "Dr. Beluru Raghunandan",
+        "kn": "ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್"
+      },
+      "t": {
+        "kn": "ಪಂಚವರ್ಣೆ",
+        "en": "Panchavarne"
+      },
+      "line": {
+        "en": "A portrayal of the lives of women—then and now—through the figure of Draupadi.",
+        "kn": "ದ್ರೌಪದಿಯ ಮೂಲಕ ಹೆಣ್ಣಿನ ಅಂದಿನ ಮತ್ತು ಇಂದಿನ ಜೀವನದ ಪ್ರಸ್ತುತಿ."
+      },
+      "story": {
+        "kn": "ಈ ನಾಟಕವು, ಐವರು ಪತಿಯರನ್ನು ಮದುವೆಯಾಗಿದ್ದ ದ್ರೌಪದಿಯ ತೊಳಲಾಟಗಳು, ಎದುರಿಸಿದ ಸವಾಲುಗಳು, ಟೀಕೆಗಳು, ಮಾನಸಿಕ ಹಿಂಸೆ ಇತ್ಯಾದಿಗಳನ್ನು ತೋರಿಸುತ್ತಾ, ಇಂದಿನ ಕಾಲದಲ್ಲಿ ಹೆಣ್ಣಿನ ಪರಿಸ್ಥಿತಿಯನ್ನು ಸುಂದರವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುತ್ತದೆ. ",
+        "en": "This play beautifully portrays the plight of women in contemporary times by depicting the inner struggles, challenges, criticisms, and mental anguish faced by Draupadi, who was married to five husbands."
+      },
+      "shows": "15",
+      "y": "2024",
+      "tag": "original",
+      "soon": false,
+      "cast": "1"
     }
   ]
 }
