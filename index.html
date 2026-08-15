@@ -384,6 +384,9 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
   transition:opacity .25s var(--ease), transform .25s var(--ease), visibility .25s;
 }
 .totop.show{opacity:1; visibility:visible; transform:none}
+#loadFail{position:fixed; inset:0; z-index:3000; background:var(--stage); display:grid; place-content:center; gap:16px; text-align:center; padding:30px}
+#loadFail[hidden]{display:none}
+#loadFail button{background:var(--ink); color:#fff; border:0; border-radius:99px; padding:12px 24px; font-size:16px; cursor:pointer}
 .totop svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
 body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 @media (hover:hover) and (pointer:fine){
@@ -508,6 +511,11 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
   </div>
 </header>
 
+<div id="loadFail" hidden>
+  <p>ವಿಷಯ ಲೋಡ್ ಆಗಲಿಲ್ಲ. · Content failed to load.</p>
+  <button type="button" onclick="location.reload()">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ · Retry</button>
+</div>
+
 <main id="top">
 
   <!-- HERO — founder at centre stage -->
@@ -538,7 +546,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 
       <div class="founder">
         <div class="medallion">
-          <i data-i18n="founder.initial"></i>
+          <i id="heroInitial"></i>
           <span class="perch" aria-hidden="true">
             <svg viewBox="0 0 40 40" fill="#4A2C00">
               <path d="M14.6 24.2 4.2 37.4c-.5.6.3 1.4.9.9l7.6-5.9-1 4.7c-.1.8.9 1.2 1.4.6l6.5-8.6-5-4.9Z"/>
@@ -547,12 +555,12 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
             </svg>
           </span>
         </div>
-        <div class="founder-role" data-i18n="founder.role"></div>
-        <p class="founder-name display" data-i18n="founder.name"></p>
+        <div class="founder-role" id="heroRole"></div>
+        <p class="founder-name display" id="heroName"></p>
       </div>
 
-      <h1 class="display" data-i18n-html="hero.title"></h1>
-      <p class="quote" data-i18n="founder.quote"></p>
+      <h1 class="display" id="heroTitle"></h1>
+      <p class="quote" data-i18n="hero.quote"></p>
 
       <div class="cta-row">
         <a class="btn btn-primary" href="#contact"><span data-i18n="cta.book"></span> →</a>
@@ -701,251 +709,71 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
    the whole site updates in both languages.
    ═══════════════════════════════════════════════════════════ */
 
-const STR = {
-  preview: {kn:'ಕಾಜಾಣ ರಂಗ ತಂಡ.</b>', en:'Kajana Ranga Tanda.</b>'},
-  brand:    {kn:'ಕಾಜಾಣ', en:'Kaajana'},
-  brandSub: {kn:'ರಂಗತಂಡ · ಬೆಂಗಳೂರು', en:'Theatre · Bengaluru'},
-
-  'nav.about':{kn:'ನಮ್ಮ ಬಗ್ಗೆ',en:'About'},
-  'nav.plays':{kn:'ನಾಟಕಗಳು',en:'Plays'},
-  'nav.journey':{kn:'ಪ್ರಯಾಣ',en:'Journey'},
-  'nav.team':{kn:'ತಂಡ',en:'Team'},
-  'nav.invite':{kn:'ಆಹ್ವಾನ',en:'Invite us'},
-  'nav.contact':{kn:'ಸಂಪರ್ಕ',en:'Contact'},
-
-  'hero.badge':{kn:'ಹಲವು ವರ್ಷಗಳಿಂದ ಕರ್ನಾಟಕದ ವೇದಿಕೆಗಳಲ್ಲಿ', en:'On Karnataka stages since years'},
-  'hero.title':{
-    kn:'ಕನ್ನಡ ರಂಗಭೂಮಿಯ <em>ದನಿ</em>',
-    en:'A living voice for <em>Kannada theatre</em>'
-  },
-  'founder.initial':{kn:'ಬೇ',en:'B'},
-  'founder.role':{kn:'ನಿರ್ದೇಶಕರು',en:'Director'},
-  'founder.name':{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
-  'founder.quote':{kn:'',en:''},
-  'cta.book':{kn:'ಪ್ರದರ್ಶನಕ್ಕೆ ಆಹ್ವಾನಿಸಿ',en:'Book a show'},
-  'cta.see':{kn:'ನಾಟಕಗಳನ್ನು ನೋಡಿ',en:'Browse the plays'},
-  'bell.label':{kn:'Info',en:'Info'},
-
-  'about.eyebrow':{kn:'ನಮ್ಮ ಬಗ್ಗೆ',en:'About us'},
-  'about.h':{kn:'ಕಾಜಾಣ',en:'Kaajana'},
-  'about.lead':{
-    kn:'ಸಮಾಜದ ದನಿಯನ್ನು ವೇದಿಕೆಯ ಮೇಲೆ ರೂಪವಾಗಿಸುವುದು.',
-    en:'Kaajana — shaping the pulse of society on stage.'
-  },
-  'about.p1':{
-    // kn:'೨೦೧೩ರಲ್ಲಿ ಆರು ಜನರ ಒಂದು ಓದುವ ಗುಂಪಾಗಿ ಶುರುವಾದ ಕಾಜಾಣ ಇಂದು ನಲವತ್ತು ಕಲಾವಿದರ ತಂಡ. ಸ್ವತಂತ್ರ ರಚನೆಗಳು, ಅನುವಾದಿತ ರೂಪಾಂತರಗಳು, ಮಕ್ಕಳ ನಾಟಕಗಳು ಮತ್ತು ಬೀದಿ ನಾಟಕಗಳು — ನಾಲ್ಕೂ ದಾರಿಯಲ್ಲಿ ನಡೆದಿದ್ದೇವೆ.',
-    // en:'Kaajana began in 2013 as a six-person reading circle and is now a company of forty. We work along four tracks: original plays, translated adaptations, theatre for children, and street theatre.'
-  },
-  'about.p2':{
-    kn:'ಪ್ರತಿ ಪ್ರಯೋಗಕ್ಕೂ ಮೊದಲು ಹಲವು ವಾರಗಳ ಕಾರ್ಯಾಗಾರ, ಪೂರ್ಣ ಓದು ಮತ್ತು ರಿಹರ್ಸಲ್.',
-    en:'Every production runs on the same method: daily reading, workshop, and an open rehearsal with the crew before opening night.'
-  },
-  ledger:[
-    {n:14, kn:'ವೇದಿಕೆಗೆ ಬಂದ ನಾಟಕಗಳು', en:'plays staged'},
-    {n:230, suffix:'+', kn:'ಪ್ರದರ್ಶನಗಳು', en:'performances'},
-    {n:11, kn:'ಊರುಗಳು ಮತ್ತು ಉತ್ಸವಗಳು', en:'cities and festivals'},
-    {n:40, kn:'ಕಲಾವಿದರು ಮತ್ತು ತಂತ್ರಜ್ಞರು', en:'artists and technicians'}
-  ],
-
-  'plays.eyebrow':{kn:'ನಾಟಕಗಳ ಪಟ್ಟಿ',en:'Repertoire'},
-  'plays.h':{kn:'ಇದುವರೆಗಿನ ಪ್ರಯೋಗಗಳು',en:'What we have staged'},
-  'plays.sub':{kn:'ಯಾವುದೇ ನಾಟಕದ ಮೇಲೆ ಒತ್ತಿ — ಕಥೆ, ತಂಡ, ವೇದಿಕೆಗಳ ವಿವರ ಸಿಗುತ್ತದೆ.',en:'Tap any play for the story, the credits and where it travelled.'},
-  'plays.all':{kn:'ಎಲ್ಲ',en:'All'},
-  'plays.soon':{kn:'ಶೀಘ್ರದಲ್ಲಿ',en:'Coming soon'},
-
-  'journey.eyebrow':{kn:'ಪ್ರಯಾಣ',en:'Journey'},
-  'journey.h':{kn:'ಒಂದು ಓದುವ ಗುಂಪಿನಿಂದ ಇಲ್ಲಿಯವರೆಗೆ',en:'From a reading circle to here'},
-  'journey.sub':{kn:'ತಂಡದ ದಾರಿಯಲ್ಲಿ ಬಂದ ಮುಖ್ಯ ನಿಲ್ದಾಣಗಳು.',en:'The stops that shaped the company.'},
-
-  'team.eyebrow':{kn:'ತಂಡ',en:'The team'},
-  'team.h':{kn:'ಪರದೆಯ ಮುಂದೆ ಮತ್ತು ಹಿಂದೆ',en:'In front of the curtain and behind it'},
-  'team.sub':{kn:'ಒಂದು ಪ್ರಯೋಗ ನಿಲ್ಲುವುದು ಕಥೆ, ಬೆಳಕು, ಸಂಗೀತ, ಸೆಟ್ ಮತ್ತು ಸಮಯದ ಮೇಲೆ.',en:'A show stands on light, music, set and timing as much as on the actors.'},
-
-  'invite.eyebrow':{kn:'ಆಹ್ವಾನ',en:'Invite us'},
-  'invite.h':{kn:'ನಿಮ್ಮ ವೇದಿಕೆಗೆ, ಶಾಲೆಗೆ, ಉತ್ಸವಕ್ಕೆ ಕಾಜಾಣ',en:'Bring Kaajana to your stage, school or festival'},
-  'invite.sub':{kn:'',en:''},
-
-  'voices.eyebrow':{kn:'ಪ್ರೇಕ್ಷಕರ ಮಾತು',en:'Voices'},
-  'voices.h':{kn:'ನಮ್ಮ ಬಗ್ಗೆ ಬೇರೆಯವರು ಹೇಳಿದ್ದು',en:'What people have said'},
-
-  'contact.eyebrow':{kn:'ಸಂಪರ್ಕ',en:'Contact'},
-  'contact.h':{kn:'ಮಾತಾಡೋಣ',en:'Let’s talk'},
-  'contact.sub':{kn:'ಬುಕಿಂಗ್, ಕಾರ್ಯಾಗಾರ, ಸಹಯೋಗ ಅಥವಾ ತಂಡಕ್ಕೆ ಸೇರುವ ಆಸಕ್ತಿ — ಯಾವುದಕ್ಕೂ ಬರೆಯಿರಿ.',en:'Bookings, workshops, collaborations, or joining the company — write to us.'},
-  'form.name':{kn:'ನಿಮ್ಮ ಹೆಸರು',en:'Your name'},
-  'form.mail':{kn:'ಇ-ಮೇಲ್',en:'Email'},
-  'form.why':{kn:'ಯಾವ ಕಾರಣಕ್ಕೆ',en:'What is this about'},
-  'form.msg':{kn:'ಸಂದೇಶ',en:'Message'},
-  'form.send':{kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್ ತೆರೆಯಿರಿ',en:'Open email draft'},
-//   'form.note':{kn:'ಇದು ನಿಮ್ಮ ಇ-ಮೇಲ್ ಆ್ಯಪ್‌ನಲ್ಲಿ ಸಂದೇಶವನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತದೆ. ಕಳುಹಿಸುವ ಮೊದಲು ನೀವು ಓದಿ ತಿದ್ದಬಹುದು.',en:'This prepares the message in your email app. You can read and edit it before sending.'},
-  'form.needName':{kn:'ಹೆಸರು ಬರೆಯಿರಿ.',en:'Add your name.'},
-  'form.needMsg':{kn:'ಸಂದೇಶ ಬರೆಯಿರಿ.',en:'Add a message.'},
-  'form.opened':{kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್ ಸಿದ್ಧವಾಗಿದೆ.',en:'Email draft is ready.'},
-  whyOptions:[
-    {kn:'ಪ್ರದರ್ಶನ ಬುಕಿಂಗ್',en:'Book a performance'},
-    {kn:'ಶಾಲೆ / ಕಾಲೇಜು ಕಾರ್ಯಾಗಾರ',en:'School or college workshop'},
-    {kn:'ಸಹಯೋಗ',en:'Collaboration'},
-    {kn:'ತಂಡಕ್ಕೆ ಸೇರಬೇಕು',en:'Join the company'},
-    {kn:'ಬೇರೆ',en:'Something else'}
-  ],
-
-  'sheet.story':{kn:'ಕಥೆ',en:'The story'},
-  'sheet.venues':{kn:'ವೇದಿಕೆಗಳು',en:'Staged at'},
-  'sheet.photos':{kn:'ಫೋಟೋ ಗ್ಯಾಲರಿ ಇಲ್ಲಿ ಬರುತ್ತದೆ',en:'Production photos go here'},
-  'c.writer':{kn:'ರಚನೆ',en:'Written by'},
-  'c.dir':{kn:'ನಿರ್ದೇಶನ',en:'Directed by'},
-  'c.time':{kn:'ಅವಧಿ',en:'Runtime'},
-  'c.cast':{kn:'ಪಾತ್ರವರ್ಗ',en:'Cast'},
-  'c.shows':{kn:'ಪ್ರದರ್ಶನಗಳು',en:'Performances'},
-  'c.lang':{kn:'ಭಾಷೆ',en:'Language'},
-  'u.min':{kn:'ನಿಮಿಷ',en:'min'},
-  'u.people':{kn:'ಜನ',en:'actors'},
-  kannada:{kn:'ಕನ್ನಡ',en:'Kannada'},
-
-  'foot.left':{kn:'© ೨೦೨೬ ಕಾಜಾಣ ರಂಗತಂಡ, ಬೆಂಗಳೂರು',en:'© 2026 Kaajana Theatre, Bengaluru'},
-  'foot.right':{kn:'ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.',en:'Nagarabhavi, Bengaluru.'}
+/* ═══════════════════════════════════════════════════════════
+   UI LABELS — stay in code. These are the words the page needs to
+   work (menu, buttons, field labels, units). Not editable in the CMS,
+   because a blank nav label breaks the page.
+   ═══════════════════════════════════════════════════════════ */
+const UI = {
+  'brand':         {kn:'ಕಾಜಾಣ', en:'Kaajana'},
+  'brandSub':      {kn:'ರಂಗತಂಡ · ಬೆಂಗಳೂರು', en:'Theatre · Bengaluru'},
+  'c.cast':        {kn:'ಪಾತ್ರವರ್ಗ', en:'Cast'},
+  'c.dir':         {kn:'ನಿರ್ದೇಶನ', en:'Directed by'},
+  'c.lang':        {kn:'ಭಾಷೆ', en:'Language'},
+  'c.shows':       {kn:'ಪ್ರದರ್ಶನಗಳು', en:'Performances'},
+  'c.time':        {kn:'ಅವಧಿ', en:'Runtime'},
+  'c.writer':      {kn:'ರಚನೆ', en:'Written by'},
+  'cta.book':      {kn:'ಪ್ರದರ್ಶನಕ್ಕೆ ಆಹ್ವಾನಿಸಿ', en:'Book a show'},
+  'cta.see':       {kn:'ನಾಟಕಗಳನ್ನು ನೋಡಿ', en:'Browse the plays'},
+  'form.mail':     {kn:'ಇ-ಮೇಲ್', en:'Email'},
+  'form.msg':      {kn:'ಸಂದೇಶ', en:'Message'},
+  'form.name':     {kn:'ನಿಮ್ಮ ಹೆಸರು', en:'Your name'},
+  'form.needMsg':  {kn:'ಸಂದೇಶ ಬರೆಯಿರಿ.', en:'Add a message.'},
+  'form.needName': {kn:'ಹೆಸರು ಬರೆಯಿರಿ.', en:'Add your name.'},
+  'form.opened':   {kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್ ಸಿದ್ಧವಾಗಿದೆ.', en:'Email draft is ready.'},
+  'form.send':     {kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್ ತೆರೆಯಿರಿ', en:'Open email draft'},
+  'form.why':      {kn:'ಯಾವ ಕಾರಣಕ್ಕೆ', en:'What is this about'},
+  'kannada':       {kn:'ಕನ್ನಡ', en:'Kannada'},
+  'nav.about':     {kn:'ನಮ್ಮ ಬಗ್ಗೆ', en:'About'},
+  'nav.contact':   {kn:'ಸಂಪರ್ಕ', en:'Contact'},
+  'nav.invite':    {kn:'ಆಹ್ವಾನ', en:'Invite us'},
+  'nav.journey':   {kn:'ಪ್ರಯಾಣ', en:'Journey'},
+  'nav.plays':     {kn:'ನಾಟಕಗಳು', en:'Plays'},
+  'nav.team':      {kn:'ತಂಡ', en:'Team'},
+  'plays.all':     {kn:'ಎಲ್ಲ', en:'All'},
+  'plays.soon':    {kn:'ಶೀಘ್ರದಲ್ಲಿ', en:'Coming soon'},
+  'preview':       {kn:'ಕಾಜಾಣ ರಂಗ ತಂಡ.</b>', en:'Kajana Ranga Tanda.</b>'},
+  'sheet.photos':  {kn:'ಫೋಟೋ ಗ್ಯಾಲರಿ ಇಲ್ಲಿ ಬರುತ್ತದೆ', en:'Production photos go here'},
+  'sheet.story':   {kn:'ಕಥೆ', en:'The story'},
+  'sheet.venues':  {kn:'ವೇದಿಕೆಗಳು', en:'Staged at'},
+  'u.min':         {kn:'ನಿಮಿಷ', en:'min'},
+  'u.people':      {kn:'ಜನ', en:'actors'},
 };
 
-const UPCOMING = [
-  {kn: 'ಮಾಹಿತಿ ಶೀಘ್ರದಲ್ಲಿ.',       en:'Information coming soon.'}
-];
+/* ═══════════════════════════════════════════════════════════
+   CONTENT — everything below is loaded from content.json at
+   startup. Edit that file (or the admin panel), never this.
+   ═══════════════════════════════════════════════════════════ */
+let STR = Object.assign({}, UI);
+let LEDGER = [], WHY = [], UPCOMING = [], TAGS = [], PLAYS = [], JOURNEY = [],
+    LEADS = [], CREW = [], SVCS = [], VOICES = [], SOCIAL = [], REACH = [];
 
-const TAGS = [
-  {id:'original',  kn:'ಸ್ವತಂತ್ರ ರಚನೆ',  en:'Original'},
-  {id:'adaptation',kn:'ರೂಪಾಂತರ',       en:'Adaptation'},
-  {id:'children',  kn:'ಮಕ್ಕಳ ನಾಟಕ',     en:'For children'},
-  {id:'street',    kn:'ಬೀದಿ ನಾಟಕ',      en:'Street theatre'}
-];
+function applyContent(C){
+  STR      = Object.assign({}, UI, C.strings || {});   // UI labels win if a key clashes
+  LEDGER   = C.ledger     || [];
+  WHY      = C.whyOptions || [];
+  UPCOMING = C.upcoming   || [];
+  TAGS     = C.tags       || [];
+  PLAYS    = C.plays      || [];
+  JOURNEY  = C.journey    || [];
+  LEADS    = C.leads      || [];
+  CREW     = C.crew       || [];
+  SVCS     = C.services   || [];
+  VOICES   = C.voices     || [];
+  SOCIAL   = C.social     || [];
+  REACH    = C.reach      || [];
+}
 
-const PLAYS = [
-  {
-    y:2024, tag:'original', hue:['#FFE3BC','#FFC48A'],
-    img:'images/plays/maatha.jpg',
-    t:{kn:'ಮಾತಾ',en:'Maatha'},
-    line:{kn:'ಪದ್ಮಶ್ರೀ. ಬಿ. ಜೋಗತಿ ಮಂಜಮ್ಮ ಅವರ ಜೀವನಾಧಾರಿತ.',en:'Based on the life of Padmashree B. Jogathi Manjamma.'},
-    story:{
-      kn:'ಪದ್ಮಶ್ರೀ ಬಿ. ಜೋಗತಿ ಮಂಜಮ್ಮ ಅವರ ಜೀವನವನ್ನು ಆಧರಿಸಿ ರಚಿಸಲಾದ ನಾಟಕ. ಮಂಜಮ್ಮ ಅವರು ತಮ್ಮ ಜೀವನದಲ್ಲಿ ಎದುರಿಸಿದ ಸವಾಲುಗಳು, ಸಾಧನೆಗಳು ಮತ್ತು ಸಮಾಜದ ಮೇಲೆ ಅವರ ಪ್ರಭಾವವನ್ನು ಚಿತ್ರಿಸುತ್ತದೆ.',
-      en:'A play based on the life of Padmashree B. Jogathi Manjamma. It portrays the challenges, achievements, and societal impact of Manjamma’s life.'
-    },
-    writer:{kn:'ಹಲವು ಕೃತಿಗಳು ಹಾಗೂ ಅವರ ಸಂದರ್ಶನಗಳನ್ನು ಆಧರಿಸಿದ್ದು.',en:'Based on books works and interviews of Manjamma.'},
-    dir:{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
-    time:120, cast:1, shows:'ಕರ್ನಾಟಕದಾದ್ಯಂತ',
-    venues:{kn:['ರಂಗ ಶಂಕರ','ಕೆ. ಎಚ್. ಕಲಾಸೌಧ','ರವೀಂದ್ರ ಕಲಾಕ್ಷೇತ್ರ','ನಯನ ರಂಗಮಂದಿರ', 'ಕಲಾಗ್ರಾಮ'],
-            en:['Ranga Shankara','K.H. Kalasoudha','Ravindra Kalakshetra','Nayana Rangamandira', 'Kalagrama']}
-  },
-  {
-    y:2023, tag:'children', hue:['#D6F3E7','#A8E6CF'],
-    img:'images/plays/timmakka.jpg',
-    t:{kn:'ಸಾಲುಮರಗಳ ತಾಯಿ ತಿಮ್ಮಕ್ಕ',en:'Mother of the Banyan Trees'},
-    line:{kn:'ವೃಕ್ಷಮಾತೆಯ ಕಥನ.',en:'A tale of the tree mother'},
-    story:{
-      kn:'ಜೀವನದಲ್ಲಿ ಹಲವು ಕಷ್ಟಗಳನ್ನು ಎದುರಿಸಿದರೂ ನೂರಾರು ಮರಗಳನ್ನು ನೆಟ್ಟು ತನ್ನ ಮಕ್ಕಳಂತೆ ಸಲುಹಿ, ಹಲವು ದಾಖಲೆಗಳನ್ನು ಹೊಂದಿದ ತಿಮ್ಮಕ್ಕ ಅವರ ಕುರಿತಾದ ನಾಟಕ.',
-      en:'A play about Timmakka, who faced many hardships in life but planted hundreds of trees and nurtured them like her own children, earning several records.'
-    },
-    writer:{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
-    dir:{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
-    time:55, cast:5, shows:64
-  },
-
-  {
-    soon:true, y:'', tag:'', hue:['#EDE9FB','#DCD5F6'],
-    img:'',
-    t:{kn:'ಮತ್ತಷ್ಟು ನಾಟಕಗಳ ಮಾಹಿತಿ - ಶೀಘ್ರದಲ್ಲಿ.',en:'More plays information - coming soon.'},
-    line:{kn:'ಪರದೆಯ ಹಿಂದೆ',en:'Behind the curtain'},
-    story:{
-      kn:'',
-      en:''
-    },
-    writer:{kn:'',en:''},
-    dir:{kn:'',en:''},
-    time:'', cast:'', shows:''
-  }
-];
-
-const JOURNEY = [
-  {y:2013, h:{kn:'ಆರು ಜನ, ಒಂದು ಮಹಡಿ ಮನೆ',en:'Six people, one upstairs room'},
-    p:{kn:'ವಿಜಯನಗರದ ಒಂದು ಸ್ಥಳದಲ್ಲಿ ಪ್ರಾರಂಭ.',
-       en:'Started as a weekly reading circle in an upstairs room in Vijayanagar. No name yet.'}},
-  {y:2015, h:{kn:'ಕಾಜಾಣ ಎಂಬ ಹೆಸರು',en:'The name Kaajana'},
-    p:{kn:'',
-       en:'The name of a bird becomes the name of the company.'}},
-  {y:2019, h:{kn:'ಮೊದಲ ದೊಡ್ಡ ವೇದಿಕೆ',en:'First proscenium production'},
-    p:{kn:'',
-       en:''}},
-  {y:2026, h:{kn:'ಹೊಸ ರಿಹರ್ಸಲ್ ಜಾಗ',en:'A rehearsal space of our own'},
-    p:{kn:'ನಾಗರಬಾವಿಯಲ್ಲಿ ರಿಹರ್ಸಲ್ ಹಾಲ್. ಹೊಸಜಾಗ. ಹೊಸ ನಾಟಕಗಳು.',
-       en:'A rehearsal hall in Nagarabhavi. New space. New plays.'}}
-];
-
-const LEADS = [
-  {i:'ಬೇ', ci:'B', c:'#5B3CC4',
-   img:'images/beluru-raghunandan.jpg', pos:'50% 28%',
-   n:{kn:'ಡಾ. ಬೇಲೂರು ರಘುನಂದನ್',en:'Dr. Beluru Raghunandan'},
-   r:{kn:'ನಿರ್ದೇಶಕರು',en:'Director'},
-   b:{kn:'ತಂಡವನ್ನು ಮುನ್ನಡೆಸುವವರು — ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ ಇವರದೇ. ಅವರ ರಂಗಪ್ರಯಾಣ ಮತ್ತು ತರಬೇತಿಯ ಬಗ್ಗೆ ಇಲ್ಲಿ ಮೂರು-ನಾಲ್ಕು ಸಾಲು ಸೇರಿಸಬಹುದು.',
-      en:'The one who steers the company — writing, directing and the shape of every production. Three or four lines about his theatre journey and training go here.'}},
-  {i:'ಲ', ci:'L', c:'#E85C8A',
-   img:'images/lakshmi-raghunandan.jpg', pos:'50% 30%',
-   n:{kn:'ಲಕ್ಷ್ಮಿ ರಘುನಂದನ್',en:'Lakshmi Raghunandan'},
-   r:{kn:'ಸಂಸ್ಥಾಪಕರು · ನಿರ್ಮಾಪಕರು',en:'Founder · Producer'},
-   b:{kn:'ಕಾಜಾಣ ರಂಗತಂಡದ ಸಂಸ್ಥಾಪಕರು. ತಂಡದ ಪ್ರಯೋಗಗಳಿಗೆ ಬೆಂಬಲ ಮತ್ತು ನಿರ್ಮಾಣದ ಜವಾಬ್ದಾರಿ ಇವರದೇ.',
-      en:'Founder of Kaajana. She backs the company and carries the producing side of every production.'}},
-  {i:'ಶ್ರೀ', ci:'S', c:'#57C4A5',
-   img:'images/srini-sampath-lakshmi.jpg', pos:'50% 25%',
-   n:{kn:'ಶ್ರೀನಿ ಸಂಪತ್ ಲಕ್ಷ್ಮಿ',en:'Srini Sampath Lakshmi'},
-   r:{kn:'ಮುಖ್ಯೋಪಾಧ್ಯಾಯರು',en:'Principal'},
-   b:{kn:'ರಂಗಸಜ್ಜಿಕೆ, ಬೆಳಕು, ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ.',
-      en:'Dates, venues, tours and the day-to-day running of the team. Any booking conversation starts here.'}}
-];
-
-const CREW = [
-  {i:'ರ', ci:'R', c:'#57C4A5', img:'images/raviteja.jpg', n:{kn:'ರವಿತೇಜ',en:'Raviteja'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
-   b:{kn:'ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.',en:'Light, sound, set, stage management.'}},
-  {i:'ಪ', ci:'P', c:'#FFA630', img:'images/pavan.jpg', n:{kn:'ಪವನ್ ಸಿಹಿಮೊಗ್ಗೆ',en:'Pavan Sihimogge'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
-   b:{kn:'ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.',en:'Light, sound, set, stage management.'}},
-  {i:'ಅ', ci:'A', c:'#5B3CC4', img:'images/anitha.jpg', n:{kn:'ಅನಿತಾ',en:'Anitha'}, r:{kn:'ರಂಗದ ಹಿಂದೆ',en:'Backstage'},
-   b:{kn:'ಬೆಳಕು, ಧ್ವನಿ, ಸೆಟ್ ಅಥವಾ ರಂಗ ವ್ಯವಸ್ಥೆ.',en:'Light, sound, set, stage management.'}}
-];
-
-const SVCS = [
-  {ic:'M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6', t:{kn:'ವೇದಿಕೆ ಪ್ರದರ್ಶನ',en:'Stage performance'},
-   d:{kn:'ನಿಮ್ಮ ರಂಗಮಂದಿರದಲ್ಲಿ ಸಂಪೂರ್ಣ ಪ್ರಯೋಗ, ಬೆಳಕು-ಧ್ವನಿ ತಂಡದೊಂದಿಗೆ.',en:'A full production at your venue, with our light and sound crew.'}},
-  {ic:'M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2ZM8 12h8M8 16h5', t:{kn:'ಶಾಲಾ ಕಾರ್ಯಾಗಾರ',en:'School workshop'},
-   d:{kn:'ನಾಲ್ಕು ದಿನದಿಂದ ಆರು ವಾರದವರೆಗೆ — ಮಕ್ಕಳ ಜೊತೆ ಒಂದು ಸಣ್ಣ ನಾಟಕ ಕಟ್ಟುವುದು.',en:'Four days to six weeks, ending with a short play the students build themselves.'}},
-  {ic:'M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8', t:{kn:'ಬೀದಿ ನಾಟಕ ಅಭಿಯಾನ',en:'Street theatre campaign'},
-   d:{kn:'ಒಂದು ವಿಷಯದ ಸುತ್ತ ಬರೆದು, ನಿಮ್ಮ ಬಡಾವಣೆಗಳಲ್ಲಿ ಆಡುತ್ತೇವೆ.',en:'Written around your issue and played across your neighbourhoods.'}},
-  {ic:'M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM21 21v-2a4 4 0 0 0-3-3.9', t:{kn:'ವಾರಾಂತ್ಯ ರಂಗ ತರಬೇತಿ',en:'Weekend theatre class'},
-   d:{kn:'ಹೊಸಬರಿಗೆ ಶನಿವಾರದ ಎಂಟು ವಾರಗಳ ತರಬೇತಿ. ಅನುಭವ ಬೇಕಿಲ್ಲ.',en:'Eight Saturdays for beginners. No experience needed.'}}
-];
-
-const VOICES = [
-  {q:{kn:'',
-      en:'It has been a while since a company brought the chaos of a green room to the stage this honestly.'},
-   w:{kn:'ರಂಗ ವಿಮರ್ಶಕಿ, ಒಂದು ಕನ್ನಡ ದಿನಪತ್ರಿಕೆ',en:'Theatre critic, a Kannada daily'}},
-  {q:{kn:'',
-      en:'They spent six weeks with us. Children who never spoke in class were standing on stage on the last day.'},
-   w:{kn:'ಮುಖ್ಯೋಪಾಧ್ಯಾಯರು, ಸರ್ಕಾರಿ ಪ್ರೌಢಶಾಲೆ',en:'Headmaster, a government high school'}},
-  {q:{kn:'',
-      en:'They arrive on time, load in fast, and keep their word. For a programmer that matters as much as the work.'},
-   w:{kn:'ಉತ್ಸವ ಸಂಚಾಲಕ, ಉತ್ತರ ಕರ್ನಾಟಕ',en:'Festival programmer, north Karnataka'}}
-];
-
-const REACH = [
-  {ic:'M4 4h16v16H4zM4 7l8 6 8-6', k:{kn:'ಇ-ಮೇಲ್',en:'Email'}, v:'kaajaana2017@gmail.com', href:'mailto:kaajaana2017@gmail.com'},
-  {ic:'M22 16.9v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 18.6 18.6 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 4.8 3h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L9 10.7a15 15 0 0 0 5.7 5.7l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z',
-   k:{kn:'ಬುಕಿಂಗ್ (ಶ್ರೀನಿ)',en:'Bookings (Srini)'}, v:'+91 84318 03866', href:'tel:+918431803866'},
-  {ic:'M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7ZM12 11.5A2.5 2.5 0 1 0 12 6.5a2.5 2.5 0 0 0 0 5Z',
-   k:{kn:'ರಿಹರ್ಸಲ್ ಜಾಗ',en:'Rehearsal space'}, v:{kn:'ನಾಗರಭಾವಿ, ಬೆಂಗಳೂರು.',en:'Nagarbhavi, Bengaluru.'},
-   href:'https://www.google.com/maps/search/?api=1&query=Nagarbhavi%2C+Bengaluru'},
-  {ic:'M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01',
-   k:{kn:'ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್',en:'Instagram'}, v:'@kaajaana_official', href:'https://www.instagram.com/kaajaana_official/'}
-];
-const SOCIAL = [
-  {k:'Instagram', href:'https://www.instagram.com/kaajaana_official/', ic:'M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.5 6.2h.01'},
-  {k:'YouTube',   href:'https://www.youtube.com/@kaajaana4339', ic:'M22 12s0-3.3-.4-4.9a2.6 2.6 0 0 0-1.8-1.8C18.2 4.9 12 4.9 12 4.9s-6.2 0-7.8.4a2.6 2.6 0 0 0-1.8 1.8C2 8.7 2 12 2 12s0 3.3.4 4.9a2.6 2.6 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8c.4-1.6.4-4.9.4-4.9ZM10 15.2l5-3.2-5-3.2v6.4Z'},
-  {k:'Facebook',  href:'https://www.facebook.com/profile.php?id=61571921651914', ic:'M14 8.5V6.6c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.2H8V12h2.6v9.8h3.1V12h2.6l.4-3.5H14Z'},
-  {k:'WhatsApp',  href:'https://wa.me/918431803866', ic:'M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5 5 16.2a8.5 8.5 0 1 1 15.5-4.6ZM8.9 8.6c-.3.7-.1 1.6.5 2.5.9 1.4 2.1 2.3 3.4 2.7.8.2 1.5.1 1.9-.3l.5-.6-1.7-1.1-.7.6c-.6-.3-1.4-1-1.8-1.8l.6-.7-1.1-1.7-.6.4Z'},
-  {k:'Email', href:'mailto:kaajaana2017@gmail.com', ic:'M4 4h16v16H4zM4 7l8 6 8-6'}
-];
 /* ═══════════════════════════════════════════════════════════
    ENGINE
    ═══════════════════════════════════════════════════════════ */
@@ -966,8 +794,24 @@ function paintStatic(){
   const pv = document.querySelector('#preview-bar span');
   if (pv) pv.innerHTML = t('preview');
   document.querySelectorAll('[data-lang-btn]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.langBtn === lang)));
-  const q = document.querySelector('.quote');            // empty quote -> hide the “ ” marks too
-  if (q) q.style.display = t('founder.quote') ? '' : 'none';
+  // any content field left blank hides its element rather than leaving a gap
+  document.querySelectorAll('[data-i18n]').forEach(node => {
+    if (node.closest('nav, .lang, .chips')) return;     // never hide navigation
+    node.style.display = node.textContent.trim() ? '' : 'none';
+  });
+  const q = document.querySelector('.quote');
+  if (q) q.style.display = t('hero.quote') ? '' : 'none';
+
+  // hero identity comes from the first person in `leads` — one place to edit
+  const lead = LEADS[0];
+  if (lead){
+    document.getElementById('heroInitial').textContent = lang === 'kn' ? lead.i : lead.ci;
+    document.getElementById('heroRole').textContent    = L(lead.r);
+    document.getElementById('heroName').textContent    = L(lead.n);
+  }
+  const mark = t('hero.titleMark');
+  document.getElementById('heroTitle').innerHTML =
+    esc(t('hero.titleLead')) + (mark ? ` <em>${esc(mark)}</em>` : '');
 }
 
 function paintTicker(){
@@ -976,7 +820,7 @@ function paintTicker(){
 }
 
 function paintLedger(){
-  document.getElementById('ledger').innerHTML = STR.ledger.map(r =>
+  document.getElementById('ledger').innerHTML = LEDGER.map(r =>
     `<div class="ledger-row"><span class="ledger-n">${n(r.n)}${r.suffix||''}</span><span class="ledger-k">${esc(L(r))}</span></div>`
   ).join('');
 }
@@ -1102,7 +946,7 @@ function paintReach(){
 function paintForm(){
   const sel = document.getElementById('f-why');
   const keep = sel.selectedIndex;
-  sel.innerHTML = STR.whyOptions.map(o => `<option>${esc(L(o))}</option>`).join('');
+  sel.innerHTML = WHY.map(o => `<option>${esc(L(o))}</option>`).join('');
   if (keep > -1) sel.selectedIndex = keep;
 }
 
@@ -1204,13 +1048,25 @@ const toggleTop = () => toTop.classList.toggle('show', window.scrollY > 320);
   window.addEventListener(ev, toggleTop, {passive:true}));
 toggleTop();
 toTop.onclick = () => window.scrollTo({top:0, behavior: calmScroll ? 'auto' : 'smooth'});
+async function boot(){
+  try {
+    const res = await fetch('content.json?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    applyContent(await res.json());
+    render();
+  } catch (err) {
+    console.error('content.json could not be loaded:', err);
+    document.getElementById('loadFail').hidden = false;
+  }
+}
+
 function render(){
   paintStatic(); paintTicker(); paintLedger(); paintChips(); paintPlays();
   paintFounderPhoto(); paintSocial();
   paintJourney(); paintTeam(); paintSvc(); paintVoices(); paintReach(); paintForm();
   document.title = lang === 'kn' ? 'ಕಾಜಾಣ ರಂಗತಂಡ · ಬೆಂಗಳೂರು' : 'Kaajana Theatre · Bengaluru';
 }
-render();
+boot();
 </script>
 </body>
 </html>
