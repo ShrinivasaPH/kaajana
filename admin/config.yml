@@ -1,20 +1,37 @@
-# ═══════════════════════════════════════════════════════════════════
-#  1. Paste the backend block DecapBridge generated for you ABOVE the
-#     "media_folder" line below, then delete this comment.
-#     It looks like:
-#
-#        backend:
-#          name: git-gateway
-#          identity_url: "https://decapbridge.com/sites/<your-site-id>"
-#          gateway_url: "https://gateway.decapbridge.com"
-#          commit_messages: ...
-#        logo_url: https://decapbridge.com/...
-#
-#  2. Do NOT add a leading slash to public_folder. The site lives at
-#     /kaajana/, so "/images" would resolve to the domain root and every
-#     uploaded image would 404.
-# ═══════════════════════════════════════════════════════════════════
+# ── DecapBridge PKCE auth ────────────────────────────────────────────
+backend:
+  name: git-gateway
+  repo: ShrinivasaPH/kaajana
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/eb13e975-cc3a-4929-a59f-26354411f16a/pkce
+  auth_token_endpoint: /sites/eb13e975-cc3a-4929-a59f-26354411f16a/token
+  gateway_url: https://gateway.decapbridge.com
 
+  # who changed what, in the commit history
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# "View site" link inside the CMS — DecapBridge defaults this to github.com
+site_url: https://shrinivasaph.github.io/kaajana/
+
+# ── media ───────────────────────────────────────────────────────────
+# No leading slash: the site lives at /kaajana/, so "/images" would
+# resolve to the domain root and every uploaded image would 404.
 media_folder: "images"
 public_folder: "images"
 
