@@ -86,7 +86,7 @@ section[id]{scroll-margin-top:calc(var(--hdr) + 16px)}
 }
 html[data-lang="kn"] .eyebrow{letter-spacing:.06em; text-transform:none; font-size:14px}
 .eyebrow::before{content:""; width:22px; height:2px; background:var(--marigold); border-radius:2px; flex:none}
-.sect{padding:96px 0 8px}
+.sect{padding-block:96px 8px}
 .sect-head{max-width:660px; margin-bottom:38px}
 .sect-head h2{font-size:clamp(30px,4.4vw,46px); margin:12px 0 10px}
 .sect-head p{color:var(--ink2); margin:0; font-size:17.5px}
@@ -309,6 +309,8 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
 .field textarea{min-height:118px; resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--violet); box-shadow:0 0 0 4px var(--violet-soft)}
 .two{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr)); gap:14px}
+.contact-grid>*{min-width:0}          /* let grid items shrink below the <select>'s content width */
+.field select{min-width:0; max-width:100%}
 .form-note{font-size:14px; color:var(--ink2); margin:12px 0 0}
 .reach{display:flex; flex-direction:column; gap:14px; margin-top:26px}
 .reach a{display:flex; gap:13px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-s); padding:14px 16px; box-shadow:var(--shadow-s); transition:.2s var(--ease)}
@@ -318,7 +320,7 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
 
 /* ── footer ─────────────────────────────────────────────── */
 footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper)}
-.foot{display:flex; align-items:center; justify-content:space-between; gap:22px; padding:34px 0; flex-wrap:wrap; font-size:14.5px; color:var(--ink2)}
+.foot{display:flex; align-items:center; justify-content:space-between; gap:22px; padding-block:34px; flex-wrap:wrap; font-size:14.5px; color:var(--ink2)}
 
 /* ── modal ──────────────────────────────────────────────── */
 .sheet{position:fixed; inset:0; z-index:100; display:none; padding:26px}
@@ -366,7 +368,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 .play:active,.person:active{transform:scale(.985)}
 .btn:active{transform:translateY(1px)}
 /* ── social row + scroll to top ─────────────────────────── */
-.social-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding:32px 0 6px}
+.social-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding-block:32px 6px}
 .social{width:46px; height:46px; border-radius:50%; display:grid; place-items:center;
         background:var(--stage); border:1px solid var(--line); transition:.22s var(--ease)}
 .social svg{width:21px; height:21px; stroke:var(--violet); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
@@ -390,7 +392,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
   .totop:hover{background:var(--violet); transform:translateY(-3px)}
 }
 @media (max-width:620px){
-  .totop{width:46px; height:46px; right:max(14px,env(safe-area-inset-right)); bottom:calc(14px + env(safe-area-inset-bottom))}
+  .totop{width:46px; height:46px; right:max(18px,env(safe-area-inset-right)); bottom:calc(18px + env(safe-area-inset-bottom))}
 }
 /* ── responsive ─────────────────────────────────────────── */
 @media (max-width:900px){
@@ -407,13 +409,14 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
   .lang{margin:8px 0 0; justify-content:center}
   .bar{gap:12px}
   .invite{padding:34px 22px; border-radius:26px}
-  .sect{padding:70px 0 4px}
+  .sect{padding-block:70px 4px}
 }
 @media (max-width:620px){
   :root{--hdr:66px}
+  .wrap{padding-left:max(24px,env(safe-area-inset-left)); padding-right:max(24px,env(safe-area-inset-right))}
   body{font-size:16px}
   #preview-bar{font-size:12.5px; line-height:1.45; text-align:center}
-  .sect{padding:56px 0 4px}
+  .sect{padding-block:56px 4px}
   .sect-head{margin-bottom:26px}
   .hero{padding:44px 0 30px}
   .medallion{width:128px; height:128px}
@@ -426,14 +429,14 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
   .ledger-n{font-size:32px; min-width:72px}
   .sheet{padding:0}
   .sheet-card{border-radius:0; height:100%; max-height:100vh; max-height:100dvh}
-  .sheet-hero{padding:26px 22px 20px}
-  .sheet-cap{margin:-26px -22px 18px; padding:30px 22px 24px; border-radius:0}
-  .sheet-body{padding:22px 22px calc(34px + env(safe-area-inset-bottom))}
+  .sheet-hero{padding:26px 24px 20px}
+  .sheet-cap{margin:-26px -24px 18px; padding:30px 24px 24px; border-radius:0}
+  .sheet-body{padding:24px 24px calc(34px + env(safe-area-inset-bottom))}
   .sheet-poster{width:84px; margin:0 16px 10px 0}
-  .foot{flex-direction:column; align-items:flex-start; gap:8px; padding:26px 0}
+  .foot{flex-direction:column; align-items:flex-start; gap:8px; padding-block:26px}
 }
 @media (max-width:400px){
-  .wrap{padding-left:16px; padding-right:16px}
+  .wrap{padding-left:max(22px,env(safe-area-inset-left)); padding-right:max(22px,env(safe-area-inset-right))}
   .logo-badge{width:40px; height:40px; border-radius:12px}
   .logo-badge svg{width:25px; height:25px}
   .logo-name{font-size:20px}
@@ -441,7 +444,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
   .medallion i{font-size:46px}
   .perch{width:36px; height:36px; top:-12px; right:-10px}
   .perch svg{width:21px; height:21px}
-  .credits{grid-template-columns:1fr}
+  .credits,.two{grid-template-columns:1fr}
   .bell-label{font-size:12px; padding:11px 18px 11px 14px}
 }
 /* phone held sideways — short screens */
