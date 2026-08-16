@@ -61,7 +61,7 @@
   --ease:cubic-bezier(.22,.7,.28,1);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%}
 body{
   margin:0; background:var(--stage); color:var(--ink);
   font-family:'Anek Kannada',system-ui,sans-serif; font-weight:400;
@@ -108,7 +108,7 @@ html[data-lang="kn"] .eyebrow{letter-spacing:.06em; text-transform:none; font-si
 /* ── header ─────────────────────────────────────────────── */
 header{
   position:sticky; top:0; z-index:60;
-  background:rgba(242,240,252,.82); backdrop-filter:blur(14px) saturate(1.4);
+  background:rgba(242,240,252,.82); -webkit-backdrop-filter:blur(14px) saturate(1.4); backdrop-filter:blur(14px) saturate(1.4);
   border-bottom:1px solid var(--line);
 }
 .bar{display:flex; align-items:center; gap:20px; height:var(--hdr)}
@@ -199,7 +199,7 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
   font-weight:700; font-size:14px; letter-spacing:.06em; display:flex; align-items:center; gap:8px;
   clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%); padding-right:30px;
 }
-.marquee{overflow:hidden; flex:1; mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.marquee{overflow:hidden; flex:1; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .marquee-track{display:flex; gap:0; width:max-content; animation:slide 34s linear infinite}
 @keyframes slide{to{transform:translateX(-50%)}}
 .tick{display:flex; align-items:center; gap:10px; padding:15px 26px; font-size:15.5px; white-space:nowrap; color:var(--ink2)}
@@ -325,7 +325,7 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 /* ── modal ──────────────────────────────────────────────── */
 .sheet{position:fixed; inset:0; z-index:100; display:none; padding:26px}
 .sheet.open{display:grid; place-items:center}
-.veil{position:absolute; inset:0; background:rgba(34,26,60,.42); backdrop-filter:blur(4px)}
+.veil{position:absolute; inset:0; background:rgba(34,26,60,.42); -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px)}
 .sheet-card{
   position:relative; background:var(--paper); border-radius:28px; max-width:760px; width:100%;
   max-height:88vh; max-height:88dvh; overflow-y:auto; overscroll-behavior:contain; box-shadow:0 50px 90px -40px rgba(34,26,60,.6);
@@ -674,7 +674,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
           <label for="f-msg" data-i18n="form.msg"></label>
           <textarea id="f-msg"></textarea>
         </div>
-        <button class="btn btn-primary" type="button" id="send" data-i18n="form.send"></button>
+        <button class="btn btn-primary" type="button" id="send" data-i18n="form.send" title="Send"></button>
         <p class="form-note" id="formNote" data-i18n="form.note"></p>
       </div>
     </div>
