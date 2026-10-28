@@ -397,8 +397,8 @@
         "en": "Theatre company"
       },
       "b": {
-        "kn": "ತಂಡವನ್ನು ಮುನ್ನಡೆಸುವವರು — ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ ಇವರದೇ.",
-        "en": "The one who steers the company — writing, directing and the shape of every production. Three or four lines about his theatre journey and training go here."
+        "kn": "ತಂಡವನ್ನು ಮುನ್ನಡೆಸುವವರು | ರಚನೆ, ನಿರ್ದೇಶನ ಮತ್ತು ಪ್ರಯೋಗಗಳ ಒಟ್ಟು ಜವಾಬ್ದಾರಿ.",
+        "en": "The one who steers the company | writing, directing and the shape of every production. Three or four lines about his theatre journey and training go here."
       },
       "mono": {
         "kn": "ಬೇ",
@@ -417,7 +417,7 @@
         "en": "Founder · Producer"
       },
       "b": {
-        "kn": "ಕಾಜಾಣ ರಂಗತಂಡದ ಸಂಸ್ಥಾಪಕರು. ತಂಡದ ಪ್ರಯೋಗಗಳಿಗೆ ಬೆಂಬಲ ಮತ್ತು ನಿರ್ಮಾಣದ ಜವಾಬ್ದಾರಿ ಇವರದೇ.",
+        "kn": "ಕಾಜಾಣ ರಂಗತಂಡದ ಸಂಸ್ಥಾಪಕರು. ತಂಡದ ಪ್ರಯೋಗಗಳಿಗೆ ಬೆಂಬಲ ಮತ್ತು ನಿರ್ಮಾಣದ ಜವಾಬ್ದಾರಿ.",
         "en": "Founder of Kaajana. She backs the company and carries the producing side of every production."
       },
       "mono": {
@@ -437,7 +437,7 @@
         "en": "Principal"
       },
       "b": {
-        "kn": "ರಂಗಸಜ್ಜಿಕೆ, ಬೆಳಕು, ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು ಇವರೊಂದಿಗೆ.",
+        "kn": "ರಂಗಸಜ್ಜಿಕೆ, ಬೆಳಕು, ದಿನಾಂಕ, ವೇದಿಕೆ, ಪ್ರವಾಸ ಮತ್ತು ತಂಡದ ದೈನಂದಿನ ನಿರ್ವಹಣೆ. ಬುಕಿಂಗ್ ಬಗ್ಗೆ ಮೊದಲ ಮಾತು.",
         "en": "Dates, venues, tours and the day-to-day running of the team. Any booking conversation starts here."
       },
       "mono": {
@@ -492,7 +492,7 @@
         "en": "School workshop"
       },
       "d": {
-        "kn": "ನಾಲ್ಕು ದಿನದಿಂದ ಆರು ವಾರದವರೆಗೆ — ಮಕ್ಕಳ ಜೊತೆ ಒಂದು ಸಣ್ಣ ನಾಟಕ ಕಟ್ಟುವುದು.",
+        "kn": "ನಾಲ್ಕು ದಿನದಿಂದ ಆರು ವಾರದವರೆಗೆ | ಮಕ್ಕಳ ಜೊತೆ ಒಂದು ಸಣ್ಣ ನಾಟಕ ಕಟ್ಟುವುದು.",
         "en": "Four days to six weeks, ending with a short play the students build themselves."
       },
       "icon": "workshop"
