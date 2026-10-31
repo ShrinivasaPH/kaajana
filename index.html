@@ -567,8 +567,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
     <div class="kb-gloss" style="transform:translateZ(130px)"></div>
   </div></div>
 </div></div>
-        <div class="founder-role" id="heroRole"></div>
-        <p class="founder-name display" id="heroName"></p>
+        
       </div>
 
       <h1 class="display" id="heroTitle"></h1>
@@ -825,11 +824,7 @@ function paintStatic(){
   if (q) q.style.display = t('hero.quote') ? '' : 'none';
 
   // hero identity comes from the first person in `leads` — one place to edit
-  const lead = LEADS[0];
-  if (lead){
-    document.getElementById('heroRole').textContent    = L(lead.r);
-    document.getElementById('heroName').textContent    = L(lead.n);
-  }
+  
   const mark = t('hero.titleMark');
   document.getElementById('heroTitle').innerHTML =
     esc(t('hero.titleLead')) + (mark ? ` <em>${esc(mark)}</em>` : '');
