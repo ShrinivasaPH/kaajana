@@ -116,11 +116,11 @@ header{
 .logo{display:flex; align-items:center; gap:11px; flex:none}
 .logo-badge{
   width:46px; height:46px; border-radius:14px; flex:none;
-  background:linear-gradient(150deg,var(--violet),#8B5CF6 60%,var(--rose));
-  color:#fff;
+  background:radial-gradient(circle at 30% 24%,#fff 0%,var(--violet-soft) 100%);
+  border:1px solid var(--line);
   display:grid; place-items:center; box-shadow:var(--shadow-s);
 }
-.logo-badge svg{width:34px; height:34px}
+.logo-badge svg{width:35px; height:35px}
 .logo-name{font-size:23px; line-height:1; margin:0}
 html[data-lang="kn"] .logo-name{font-family:'Baloo Tamma 2',sans-serif; font-weight:800}
 html[data-lang="en"] .logo-name{font-family:'Fraunces',serif; font-weight:900; letter-spacing:-.02em}
@@ -153,7 +153,7 @@ nav a{padding:9px 13px; border-radius:99px; font-size:15.5px; font-weight:500; c
 .founder{display:inline-block; position:relative; margin:6px 0 4px}
 .medallion{
   width:158px; height:158px; border-radius:50%; margin:0 auto;
-  background:linear-gradient(150deg,var(--violet),#8B5CF6 60%,var(--rose));
+  background:radial-gradient(circle at 32% 26%,#fff 0%,var(--violet-soft) 46%,#CFC2FF 100%);
   border:5px solid var(--paper); box-shadow:var(--shadow-m);
   display:grid; place-items:center; position:relative; overflow:hidden;
 }
@@ -469,14 +469,72 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <mask id="kjCut" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
-      <rect width="200" height="200" fill="#fff"/>
-      <path d="M107 80C122 93 114 117 94 131" fill="none" stroke="#000" stroke-width="3.400" stroke-linecap="round"/>
-      <circle cx="134" cy="51" r="6.200" fill="#000"/>
-    </mask>
+    <linearGradient id="kjBody" x1=".15" y1="0" x2=".85" y2="1">
+      <stop offset="0" stop-color="#43359A"/><stop offset=".42" stop-color="#261C52"/><stop offset="1" stop-color="#120D26"/>
+    </linearGradient>
+    <linearGradient id="kjWing" x1=".1" y1="0" x2=".9" y2="1">
+      <stop offset="0" stop-color="#5546C2"/><stop offset=".38" stop-color="#2E2573"/><stop offset=".8" stop-color="#1A1438"/><stop offset="1" stop-color="#2B6F78"/>
+    </linearGradient>
+    <linearGradient id="kjTail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2D2266"/><stop offset=".7" stop-color="#150F2E"/><stop offset="1" stop-color="#1F7E7A"/>
+    </linearGradient>
+    <linearGradient id="kjBeak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5A4E80"/><stop offset="1" stop-color="#1B1530"/>
+    </linearGradient>
+    <linearGradient id="kjRim" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#E85C8A" stop-opacity=".95"/>
+      <stop offset=".3" stop-color="#8B6CF0" stop-opacity=".9"/>
+      <stop offset=".48" stop-color="#57C4A5" stop-opacity=".55"/>
+      <stop offset=".62" stop-color="#57C4A5" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="kjBodyClip"><path d="M94 64C96 42 116 30 135 36c13 4 19 16 15 28-2 7-5 12-8 20-4 12-8 26-20 40-10 12-24 20-40 20-6 0-12-2-18-6-2-22 10-44 24-60 4-5 6-9 6-14Z"/></clipPath>
+    <radialGradient id="kjSheen" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="kjEye" cx=".38" cy=".32" r=".8">
+      <stop offset="0" stop-color="#FF8A5C"/><stop offset=".55" stop-color="#D9281F"/><stop offset="1" stop-color="#7B0F14"/>
+    </radialGradient>
+    <radialGradient id="kjDisc" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFA630" stop-opacity=".42"/><stop offset=".7" stop-color="#FFA630" stop-opacity=".16"/><stop offset="1" stop-color="#FFA630" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="kjBranch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B07C58"/><stop offset="1" stop-color="#6A452F"/>
+    </linearGradient>
+    <linearGradient id="kjLeaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7FE0C2"/><stop offset="1" stop-color="#2E9C80"/>
+    </linearGradient>
+
+    <!-- the bird itself: no branch, no background — reused at every size -->
     <g id="kj-bird">
-      <path d="M87.0 185.6C87.3 185.5 87.8 185.1 88.0 184.8C88.1 184.7 88.4 183.5 88.7 182.2C92.4 167.5 98.9 153.2 108.5 138.6C110.5 135.4 110.6 135.2 108.9 133.7C107.7 132.5 107.6 132.1 107.6 130.8C107.5 129.7 107.8 129.2 109.0 127.8C122.2 112.6 132.8 93.0 137.1 75.6C137.9 72.4 138.4 71.9 141.3 71.0C152.0 68.0 163.0 66.6 171.0 67.3C173.3 67.5 173.6 67.5 174.2 66.9C175.1 66.1 175.0 65.2 173.2 62.0C167.5 51.9 159.1 44.7 149.2 41.7C146.9 41.1 146.8 41.0 145.3 38.9C136.8 27.5 120.8 26.3 110.9 36.3C105.3 42.1 103.3 49.7 105.3 58.0C105.9 60.5 105.7 61.2 103.8 63.3C91.2 77.3 80.7 96.0 75.7 113.6C73.8 120.1 68.2 132.2 62.9 141.3C58.9 148.0 53.9 155.1 49.2 160.6C47.4 162.7 47.2 163.4 48.2 164.3C49.2 165.2 49.2 165.2 54.9 161.9C64.8 156.1 70.5 152.4 75.7 148.8C78.0 147.1 79.1 146.8 80.5 147.5C82.2 148.3 82.5 149.3 82.5 153.5C82.5 160.3 83.0 168.0 84.3 180.1C84.8 184.5 84.9 184.9 85.5 185.3C86.0 185.7 86.5 185.8 87.0 185.6Z" fill="currentColor" mask="url(#kjCut)"/>
-      <circle cx="134" cy="51" r="3.700" fill="#FFA630"/>
+      <!-- tail: two long outer feathers, deep fork, tips flaring outward -->
+      <path d="M66 130C54 148 38 162 20 170c-3 1.500-2 5 1 5 16-1 32-6 44-16 9-7 15-15 19-23Z" fill="url(#kjTail)"/>
+      <path d="M76 138c0 16-3 32 2 50 1 3 5 3 7 0 7-8 9-18 8-28-1-9-4-16-8-22Z" fill="url(#kjTail)"/>
+      <path d="M68 134C54 150 38 163 22 171" stroke="#8B7CF0" stroke-opacity=".5" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <path d="M81 142c0 14-1 28 2 42" stroke="#8B7CF0" stroke-opacity=".45" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <!-- beak first, so the head overlaps its root and no seam shows -->
+      <path d="M138 48c14-2 28 3 38 14 2 2.200 1.200 6-1.500 5-3-1.200-5-4-11-4.500-8-.6-16 .5-25 .5Z" fill="url(#kjBeak)"/>
+      <path d="M140 64c9 3.500 20 4 29 2.500" stroke="#0E0A1C" stroke-opacity=".55" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <path d="M146 52c9-.8 18 1.800 26 8" stroke="#fff" stroke-opacity=".38" stroke-width="1.100" fill="none" stroke-linecap="round"/>
+      <path d="M143 50c-1.500-4-.5-8 2-11M147 49.500c-.5-4 .5-7.500 3-10" stroke="#1B1530" stroke-width="1.200" fill="none" stroke-linecap="round"/>
+      <!-- body + head: fuller, rounder -->
+      <path d="M94 64C96 42 116 30 135 36c13 4 19 16 15 28-2 7-5 12-8 20-4 12-8 26-20 40-10 12-24 20-40 20-6 0-12-2-18-6-2-22 10-44 24-60 4-5 6-9 6-14Z" fill="url(#kjBody)"/>
+      <!-- crest -->
+      <path d="M126 38c2-8 10-13 19-11-5 2-8 5-9 11Z" fill="#3A2E86"/>
+      <!-- rim light: the body outline itself, clipped to its inside, so it can never drift off the edge -->
+      <path d="M94 64C96 42 116 30 135 36c13 4 19 16 15 28-2 7-5 12-8 20-4 12-8 26-20 40-10 12-24 20-40 20-6 0-12-2-18-6-2-22 10-44 24-60 4-5 6-9 6-14Z" fill="none" stroke="url(#kjRim)" stroke-width="4.500" clip-path="url(#kjBodyClip)"/>
+      <!-- folded wing -->
+      <path d="M102 82c20 8 24 30 8 48-12 13-32 22-58 26 3-16 11-36 25-54 8-9 16-16 25-20Z" fill="url(#kjWing)"/>
+      <path d="M110 100C100 126 80 144 56 155" stroke="#57C4A5" stroke-opacity=".6" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <path d="M104 92C94 116 76 134 56 148" stroke="#8B7CF0" stroke-opacity=".55" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <path d="M96 88C88 108 74 126 58 140" stroke="#8B7CF0" stroke-opacity=".42" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <path d="M98 84q8 3 10 12M92 90q8 3 9 12M86 98q7 3 8 11" stroke="#8B7CF0" stroke-opacity=".5" stroke-width=".9" fill="none" stroke-linecap="round"/>
+      <!-- crown highlight -->
+      <path d="M104 46c8-9 24-12 34-6-12-1-24 3-32 12Z" fill="url(#kjSheen)"/>
+      <!-- eye -->
+      <circle cx="131" cy="57" r="6" fill="#0E0A1C"/>
+      <circle cx="131" cy="57" r="4.800" fill="url(#kjEye)"/>
+      <circle cx="131.400" cy="57" r="2.300" fill="#0E0A1C"/>
+      <circle cx="132.900" cy="55.200" r="1.100" fill="#fff"/>
     </g>
   </defs>
 </svg>
@@ -492,7 +550,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
     <!-- top-left: logo -->
     <a class="logo" href="#top" aria-label="Kaajana">
       <span class="logo-badge">
-        <svg viewBox="21 16 180 180" aria-hidden="true"><use href="#kj-bird"/></svg>
+        <svg viewBox="12 22 170 176" aria-hidden="true"><use href="#kj-bird"/></svg>
       </span>
       <span>
         <span class="logo-name display" data-i18n="brand"></span>
@@ -554,9 +612,20 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 
       <div class="founder">
         <div class="medallion">
-<svg viewBox="0 0 200 200" role="img" aria-label="Kaajana — drongo">
-  <circle cx="100" cy="100" r="90" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.500"/>
-  <g transform="translate(100 100) scale(.84) translate(-111 -106)" style="color:#fff">
+<svg viewBox="0 0 200 200" role="img" aria-label="Kaajana — drongo on a branch">
+  <circle cx="108" cy="92" r="74" fill="url(#kjDisc)"/>
+  <g transform="translate(100 100) scale(.87) translate(-98 -104)">
+    <!-- twig + leaves -->
+    <path d="M150 140c8-12 20-20 36-24" stroke="#7A5038" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M168 124c2-12 12-18 24-18-1 12-10 20-24 18Z" fill="url(#kjLeaf)"/>
+    <path d="M169 123c7-4 13-9 20-15" stroke="#fff" stroke-opacity=".5" stroke-width=".8" fill="none"/>
+    <path d="M152 136c-8-6-9-17-3-25 8 5 10 16 3 25Z" fill="#3FA98C"/>
+    <!-- branch -->
+    <path d="M-20 170C40 164 110 156 215 138" stroke="#7B4E36" stroke-width="11" fill="none" stroke-linecap="round"/>
+    <path d="M-20 167C40 161 110 153 215 135" stroke="#C79A74" stroke-opacity=".55" stroke-width="2.600" fill="none" stroke-linecap="round"/>
+    <!-- legs and toes -->
+    <path d="M100 138l-1 12M110 134l-1 15" stroke="#2A2040" stroke-width="2.800" stroke-linecap="round"/>
+    <path d="M92 153q7-6 14 0M103 151q7-6 14 0" stroke="#2A2040" stroke-width="2.400" fill="none" stroke-linecap="round"/>
     <use href="#kj-bird"/>
   </g>
 </svg>
