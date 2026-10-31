@@ -304,20 +304,11 @@ html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; fo
 .voice .who{font-size:14px; color:var(--ink2); font-weight:600}
 
 /* ── contact ────────────────────────────────────────────── */
-.contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:44px; align-items:start}
-.field{margin-bottom:16px}
-.field label{display:block; font-size:14px; font-weight:600; margin-bottom:6px}
-.field input,.field select,.field textarea{
   width:100%; padding:13px 15px; border-radius:var(--r-s); border:1px solid var(--line);
   background:var(--paper); font-family:inherit; font-size:16px; color:var(--ink);
 }
-.field textarea{min-height:118px; resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--violet); box-shadow:0 0 0 4px var(--violet-soft)}
 .two{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr)); gap:14px}
-.contact-grid>*{min-width:0}          /* let grid items shrink below the <select>'s content width */
-.field select{min-width:0; max-width:100%}
-.form-note{font-size:14px; color:var(--ink2); margin:12px 0 0}
-.reach{display:flex; flex-direction:column; gap:14px; margin-top:26px}
+.reach{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr)); gap:14px; margin-top:26px}
 .reach a{display:flex; gap:13px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-s); padding:14px 16px; box-shadow:var(--shadow-s); transition:.2s var(--ease)}
 .reach svg{width:20px; height:20px; stroke:var(--violet); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex:none}
 .reach .k{font-size:12.5px; color:var(--ink2); display:block; line-height:1.3}
@@ -375,8 +366,12 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 /* ── social row + scroll to top ─────────────────────────── */
 .social-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; padding-block:32px 6px}
 .social{width:46px; height:46px; border-radius:50%; display:grid; place-items:center;
-        background:var(--stage); border:1px solid var(--line); transition:.22s var(--ease)}
-.social svg{width:21px; height:21px; stroke:var(--violet); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+        background:var(--bg); box-shadow:0 8px 18px -8px var(--glow); transition:.22s var(--ease)}
+.social svg{width:22px; height:22px; fill:#fff; stroke:none}
+.social.plain{--bg:var(--stage); --glow:transparent; border:1px solid var(--line); box-shadow:none}
+.social.plain svg{fill:none; stroke:var(--violet); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; width:21px; height:21px}
+.reach .bchip{width:36px; height:36px; border-radius:50%; background:var(--bg); display:grid; place-items:center; flex:none}
+.reach .bchip svg{width:18px; height:18px; fill:#fff; stroke:none}
 .foot{border-top:1px solid var(--line)}
 
 .totop{
@@ -395,8 +390,9 @@ footer{margin-top:92px; border-top:1px solid var(--line); background:var(--paper
 .totop svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
 body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 @media (hover:hover) and (pointer:fine){
-  .social:hover{background:var(--violet); border-color:var(--violet); transform:translateY(-3px)}
-  .social:hover svg{stroke:#fff}
+  .social:hover{transform:translateY(-3px) scale(1.06); box-shadow:0 12px 22px -8px var(--glow)}
+  .social.plain:hover{background:var(--violet); border-color:var(--violet)}
+  .social.plain:hover svg{stroke:#fff}
   .totop:hover{background:var(--violet); transform:translateY(-3px)}
 }
 @media (max-width:620px){
@@ -404,8 +400,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 }
 /* ── responsive ─────────────────────────────────────────── */
 @media (max-width:900px){
-  .about-grid,.contact-grid{grid-template-columns:1fr; gap:30px}
-  nav{
+  .about-grid,  nav{
     position:fixed; inset:var(--hdr) 0 auto; background:var(--paper); flex-direction:column;
     align-items:stretch; padding:14px; padding-bottom:max(14px,env(safe-area-inset-bottom));
     gap:2px; border-bottom:1px solid var(--line); box-shadow:var(--shadow-m); display:none; margin:0;
@@ -658,33 +653,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
       <h2 class="display" data-i18n="contact.h"></h2>
       <p data-i18n="contact.sub"></p>
     </div>
-    <div class="contact-grid">
-      <div class="rise">
-        <div class="reach" id="reach"></div>
-      </div>
-      <div class="rise">
-        <div class="two">
-          <div class="field">
-            <label for="f-name" data-i18n="form.name"></label>
-            <input id="f-name" type="text" autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="f-mail" data-i18n="form.mail"></label>
-            <input id="f-mail" type="email" autocomplete="email">
-          </div>
-        </div>
-        <div class="field">
-          <label for="f-why" data-i18n="form.why"></label>
-          <select id="f-why"></select>
-        </div>
-        <div class="field">
-          <label for="f-msg" data-i18n="form.msg"></label>
-          <textarea id="f-msg"></textarea>
-        </div>
-        <button class="btn btn-primary" type="button" id="send" data-i18n="form.send"></button>
-        <p class="form-note" id="formNote" data-i18n="form.note"></p>
-      </div>
-    </div>
+    <div class="rise"><div class="reach" id="reach"></div></div>
   </section>
 </main>
 
@@ -732,14 +701,6 @@ const UI = {
   'c.writer':      {kn:'ರಚನೆ', en:'Written by'},
   'cta.book':      {kn:'ಪ್ರದರ್ಶನಕ್ಕೆ ಆಹ್ವಾನಿಸಿ', en:'Book a show'},
   'cta.see':       {kn:'ನಾಟಕಗಳನ್ನು ನೋಡಿ', en:'Browse the plays'},
-  'form.mail':     {kn:'ಇ-ಮೇಲ್', en:'Email'},
-  'form.msg':      {kn:'ಸಂದೇಶ', en:'Message'},
-  'form.name':     {kn:'ನಿಮ್ಮ ಹೆಸರು', en:'Your name'},
-  'form.needMsg':  {kn:'ಸಂದೇಶ ಬರೆಯಿರಿ.', en:'Add a message.'},
-  'form.needName': {kn:'ಹೆಸರು ಬರೆಯಿರಿ.', en:'Add your name.'},
-  'form.opened':   {kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್ ಸಿದ್ಧವಾಗಿದೆ.', en:'Email draft is ready.'},
-  'form.send':     {kn:'ಇ-ಮೇಲ್ ಡ್ರಾಫ್ಟ್ ತೆರೆಯಿರಿ', en:'Open email draft'},
-  'form.why':      {kn:'ಯಾವ ಕಾರಣಕ್ಕೆ', en:'What is this about'},
   'kannada':       {kn:'ಕನ್ನಡ', en:'Kannada'},
   'nav.about':     {kn:'ನಮ್ಮ ಬಗ್ಗೆ', en:'About'},
   'nav.contact':   {kn:'ಸಂಪರ್ಕ', en:'Contact'},
@@ -775,6 +736,15 @@ const ICONS = {
   street:     'M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8',
   class:      'M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM21 21v-2a4 4 0 0 0-3-3.9'
 };
+/* brand glyphs (Simple Icons, CC0) + each network's own colours */
+const BRAND = {
+  instagram: {p:'M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077', bg:'radial-gradient(circle at 30% 107%,#FDF497 0%,#FDF497 5%,#FD5949 45%,#D6249F 60%,#285AEB 90%)', glow:'#D6249F'},
+  youtube:   {p:'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z', bg:'#FF0000', glow:'#FF0000'},
+  facebook:  {p:'M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z', bg:'#1877F2', glow:'#1877F2'},
+  whatsapp:  {p:'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z', bg:'#25D366', glow:'#25D366'},
+  email:     {p:'M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z', bg:'#EA4335', glow:'#EA4335'},
+  x:         {p:'M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z', bg:'#111111', glow:'#111111'}
+};
 const SWATCH = ['#5B3CC4','#E85C8A','#57C4A5','#FFA630'];      // avatar colours, by position
 const HUE    = [['#FFE3BC','#FFC48A'],['#D6F3E7','#A8E6CF'],['#E7DEFF','#C9B8FF'],
                 ['#FFD9E4','#FFB3C8'],['#CFEBFF','#A7D8F5'],['#EDE9FB','#DCD5F6']];
@@ -795,7 +765,7 @@ function initialOf(str){
 const monogram = p => L(p.mono) || initialOf(L(p.n));   // stored initials win
 
 let STR = Object.assign({}, UI);
-let LEDGER = [], WHY = [], UPCOMING = [], TAGS = [], PLAYS = [], JOURNEY = [],
+let LEDGER = [], UPCOMING = [], TAGS = [], PLAYS = [], JOURNEY = [],
     LEADS = [], CREW = [], SVCS = [], VOICES = [], SOCIAL = [], REACH = [];
 
 function applyContent(C){
@@ -804,7 +774,6 @@ function applyContent(C){
     Object.entries(obj || {}).forEach(([k,v]) => { flat[g + '.' + k] = v; }));
   STR      = Object.assign({}, flat, UI);              // UI labels win if a key clashes
   LEDGER   = C.ledger     || [];
-  WHY      = C.whyOptions || [];
   UPCOMING = C.upcoming   || [];
   TAGS     = C.tags       || [];
   PLAYS    = C.plays      || [];
@@ -968,16 +937,11 @@ function paintVoices(){
 function paintReach(){
   document.getElementById('reach').innerHTML = REACH.map(r => `
     <a href="${r.href}" ${/^https?:/i.test(r.href) ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-      <svg viewBox="0 0 24 24"><path d="${icon(r.icon)}"/></svg>
+      ${BRAND[r.icon]
+        ? `<span class="bchip" style="--bg:${BRAND[r.icon].bg}"><svg viewBox="0 0 24 24"><path d="${BRAND[r.icon].p}"/></svg></span>`
+        : `<svg viewBox="0 0 24 24"><path d="${icon(r.icon)}"/></svg>`}
       <span><span class="k">${esc(L(r.k))}</span><span class="v">${esc(L(r.v))}</span></span>
     </a>`).join('');
-}
-
-function paintForm(){
-  const sel = document.getElementById('f-why');
-  const keep = sel.selectedIndex;
-  sel.innerHTML = WHY.map(o => `<option>${esc(L(o))}</option>`).join('');
-  if (keep > -1) sel.selectedIndex = keep;
 }
 
 /* play detail sheet */
@@ -1042,31 +1006,21 @@ burger.onclick = () => {
 };
 nav.querySelectorAll('a').forEach(a => a.onclick = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
 
-/* contact → email draft */
-document.getElementById('send').onclick = () => {
-  const name = document.getElementById('f-name').value.trim();
-  const mail = document.getElementById('f-mail').value.trim();
-  const why  = document.getElementById('f-why').value;
-  const msg  = document.getElementById('f-msg').value.trim();
-  const note = document.getElementById('formNote');
-  if (!name) { note.textContent = t('form.needName'); document.getElementById('f-name').focus(); return; }
-  if (!msg)  { note.textContent = t('form.needMsg');  document.getElementById('f-msg').focus();  return; }
-  const body = `${msg}\n\n—\n${name}${mail ? '\n' + mail : ''}`;
-  window.location.href = `mailto:namaskara@kaajana.in?subject=${encodeURIComponent(why + ' — ' + name)}&body=${encodeURIComponent(body)}`;
-  note.textContent = t('form.opened');
-};
-
 /* scroll reveal */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll('.rise').forEach(x => io.observe(x));
 function paintSocial(){
   document.getElementById('social').innerHTML = SOCIAL
     .filter(s => s.href && s.href !== '#')          // an icon that goes nowhere never renders
-    .map(s => `
-      <a class="social" href="${s.href}" aria-label="${esc(s.k || s.icon)}" title="${esc(s.k || s.icon)}"
+    .map(s => {
+      const b = BRAND[s.icon];
+      return `
+      <a class="social${b ? '' : ' plain'}" href="${s.href}" aria-label="${esc(s.k || s.icon)}" title="${esc(s.k || s.icon)}"
+         ${b ? `style="--bg:${b.bg};--glow:${b.glow}"` : ''}
          ${/^https?:/i.test(s.href) ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-        <svg viewBox="0 0 24 24"><path d="${icon(s.icon)}"/></svg>
-      </a>`).join('');
+        <svg viewBox="0 0 24 24"><path d="${b ? b.p : icon(s.icon)}"/></svg>
+      </a>`;
+    }).join('');
 }
 
 /* scroll to top — lives directly on <body>, so no transformed ancestor
@@ -1093,7 +1047,7 @@ async function boot(){
 function render(){
   paintStatic(); paintTicker(); paintLedger(); paintChips(); paintPlays();
   paintSocial();
-  paintJourney(); paintTeam(); paintSvc(); paintVoices(); paintReach(); paintForm();
+  paintJourney(); paintTeam(); paintSvc(); paintVoices(); paintReach();
   document.title = lang === 'kn' ? 'ಕಾಜಾಣ ರಂಗತಂಡ · ಬೆಂಗಳೂರು' : 'Kaajana Theatre · Bengaluru';
 }
 boot();
