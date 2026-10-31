@@ -1,39 +1,42 @@
-KAAJANA LOGO UPDATE — 4 paste-in changes to index.html
-(Use Cmd+F to find each "FIND" block, then replace it with the "REPLACE" block.)
+KAAJANA LOGO UPDATE v2 — paste-in changes to index.html
+(Cmd+F each "FIND", replace with the "REPLACE" block.)
 
-═══ 1. SPRITE (the hidden <svg width="0" …> right after <body>) ═══
-FIND: the whole block starting  <svg width="0" height="0" style="position:absolute" …>  and ending at its  </defs></svg>
+═══ 1. SPRITE — the hidden <svg width="0" …> right after <body> ═══
+FIND: the whole block from  <svg width="0" height="0" …>  to its closing  </defs></svg>
 REPLACE WITH:
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <mask id="kjTail" maskUnits="userSpaceOnUse" x="-100" y="-700" width="1400" height="760"><rect x="-100" y="-700" width="1400" height="760" fill="#fff"/><g fill="#000"><path d="M222-461L62-575H-20V-461Z"/><path d="M222-405L68-285V-260H-20V-405Z"/></g></mask>
-<g id="kj-mark"><path d="M804.5 -166Q804.5 -134.2 828.1 -114.7Q851.7 -95.3 887.6 -95.3Q943 -95.3 974.4 -138.7Q1005.9 -182.1 1005.9 -258.9Q1005.9 -357.8 945.1 -412.9Q884.3 -468 779.4 -468H508.8V-572.3H801.8Q908.9 -572.3 984.2 -531Q1059.5 -489.7 1099.7 -418.8Q1139.9 -348 1139.9 -258.2Q1139.9 -171.9 1109.3 -110.8Q1078.6 -49.7 1022 -16.9Q965.4 15.9 887.5 15.9Q828.6 15.9 779.3 -6.1Q730.1 -28.1 700.4 -70.7Q670.8 -113.3 670.8 -173.9Q670.8 -227.9 692.9 -264.5Q715.1 -301.2 750.9 -320.2Q786.8 -339.2 826.4 -339.2Q867.3 -339.2 890.1 -321.1Q912.9 -303 912.9 -274.1Q912.9 -246.9 897.6 -226.3Q891.2 -228.6 884.7 -229.3Q878.2 -230 871.5 -230Q843.1 -230 823.8 -213.6Q804.5 -197.2 804.5 -166ZM649.1 -468H46.4Q41.4 -477.3 37.3 -490.6Q33.1 -503.9 33.1 -519.8Q33.1 -548.4 46.4 -560.3Q59.7 -572.3 81 -572.3H649.1ZM272.2 -366.3V-491.9H402.3V-366.3ZM233.2 -287.4H43.1Q38.1 -296.7 34 -310Q29.8 -323.3 29.8 -339.2Q29.8 -367.8 43.5 -379.7Q57.1 -391.7 78.4 -391.7H629.1Q634 -383 638.2 -369.1Q642.3 -355.1 642.3 -339.2Q642.3 -310.6 628.7 -299Q615.1 -287.4 593.8 -287.4H416.5L337.9 -301.7ZM171.1 -311 510.4 -303.7Q545.2 -281.1 564 -246.2Q582.8 -211.3 582.8 -176.1Q582.8 -120.4 551.8 -76.8Q520.8 -33.1 466 -7.9Q411.2 17.2 337.6 17.2Q266 17.2 210.3 -7.4Q154.7 -32.1 123 -75.6Q91.4 -119.1 91.4 -175.8Q91.4 -214 112 -250.5Q132.6 -287.1 171.1 -311ZM338.6 -289.4Q287.1 -289.4 253.6 -260.7Q220.1 -231.9 220.1 -185.7Q220.1 -156.9 235 -134.3Q249.9 -111.7 277 -98.5Q304.2 -85.3 338.9 -85.3Q391.1 -85.3 422.6 -114.3Q454 -143.2 454 -185.7Q454 -215.8 439.3 -239.1Q424.5 -262.3 398.6 -275.9Q372.7 -289.4 338.6 -289.4Z" fill="currentColor" mask="url(#kjTail)"/><path d="M1096-380C1150-360 1200-325 1218-285C1190-270 1150-258 1096-225Z" fill="currentColor"/><circle cx="858" cy="-283" r="37" fill="#FFA630"/><circle cx="866" cy="-283" r="15" fill="#221A3C"/><circle cx="874" cy="-292" r="5" fill="#fff"/></g></defs></svg>
+<linearGradient id="kjSheen" gradientUnits="userSpaceOnUse" x1="40" y1="-580" x2="1200" y2="20"><stop offset="0" stop-color="#2E1A86"/><stop offset=".45" stop-color="#5B3CC4"/><stop offset=".8" stop-color="#7A56E8"/><stop offset="1" stop-color="#4FB3C8"/></linearGradient>
+<linearGradient id="kjGloss" gradientUnits="userSpaceOnUse" x1="0" y1="-580" x2="0" y2="-380"><stop offset="0" stop-color="#fff" stop-opacity=".42"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<g id="kj-shape"><path d="M804.5 -166Q804.5 -134.2 828.1 -114.7Q851.7 -95.3 887.6 -95.3Q943 -95.3 974.4 -138.7Q1005.9 -182.1 1005.9 -258.9Q1005.9 -357.8 945.1 -412.9Q884.3 -468 779.4 -468H508.8V-572.3H801.8Q908.9 -572.3 984.2 -531Q1059.5 -489.7 1099.7 -418.8Q1139.9 -348 1139.9 -258.2Q1139.9 -171.9 1109.3 -110.8Q1078.6 -49.7 1022 -16.9Q965.4 15.9 887.5 15.9Q828.6 15.9 779.3 -6.1Q730.1 -28.1 700.4 -70.7Q670.8 -113.3 670.8 -173.9Q670.8 -227.9 692.9 -264.5Q715.1 -301.2 750.9 -320.2Q786.8 -339.2 826.4 -339.2Q867.3 -339.2 890.1 -321.1Q912.9 -303 912.9 -274.1Q912.9 -246.9 897.6 -226.3Q891.2 -228.6 884.7 -229.3Q878.2 -230 871.5 -230Q843.1 -230 823.8 -213.6Q804.5 -197.2 804.5 -166ZM649.1 -468H46.4Q41.4 -477.3 37.3 -490.6Q33.1 -503.9 33.1 -519.8Q33.1 -548.4 46.4 -560.3Q59.7 -572.3 81 -572.3H649.1ZM272.2 -366.3V-491.9H402.3V-366.3ZM233.2 -287.4H43.1Q38.1 -296.7 34 -310Q29.8 -323.3 29.8 -339.2Q29.8 -367.8 43.5 -379.7Q57.1 -391.7 78.4 -391.7H629.1Q634 -383 638.2 -369.1Q642.3 -355.1 642.3 -339.2Q642.3 -310.6 628.7 -299Q615.1 -287.4 593.8 -287.4H416.5L337.9 -301.7ZM171.1 -311 510.4 -303.7Q545.2 -281.1 564 -246.2Q582.8 -211.3 582.8 -176.1Q582.8 -120.4 551.8 -76.8Q520.8 -33.1 466 -7.9Q411.2 17.2 337.6 17.2Q266 17.2 210.3 -7.4Q154.7 -32.1 123 -75.6Q91.4 -119.1 91.4 -175.8Q91.4 -214 112 -250.5Q132.6 -287.1 171.1 -311ZM338.6 -289.4Q287.1 -289.4 253.6 -260.7Q220.1 -231.9 220.1 -185.7Q220.1 -156.9 235 -134.3Q249.9 -111.7 277 -98.5Q304.2 -85.3 338.9 -85.3Q391.1 -85.3 422.6 -114.3Q454 -143.2 454 -185.7Q454 -215.8 439.3 -239.1Q424.5 -262.3 398.6 -275.9Q372.7 -289.4 338.6 -289.4Z" mask="url(#kjTail)"/><path d="M1096-380C1150-360 1200-325 1218-285C1190-270 1150-258 1096-225Z"/></g>
+<g id="kj-eye"><circle cx="858" cy="-283" r="37" fill="#FFA630"/><circle cx="866" cy="-283" r="15" fill="#221A3C"/><circle cx="874" cy="-292" r="5" fill="#fff"/></g>
+<g id="kj-mark"><use href="#kj-shape" x="20" y="24" fill="#FFA630"/><use href="#kj-shape" fill="url(#kjSheen)"/><use href="#kj-shape" fill="url(#kjGloss)"/><use href="#kj-eye"/></g>
+<g id="kj-mark-flat"><use href="#kj-shape" fill="currentColor"/><use href="#kj-eye"/></g>
+<radialGradient id="kjDisc" cx=".34" cy=".26" r=".95"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#F1ECFF"/><stop offset="1" stop-color="#DCD0FF"/></radialGradient>
+</defs></svg>
 
 ═══ 2. HEADER LOGO (inside <span class="logo-badge">) ═══
-FIND:
-<svg viewBox="21 16 180 180" aria-hidden="true"><use href="#kj-bird"/></svg>
+FIND:  <svg viewBox="21 16 180 180" aria-hidden="true"><use href="#kj-bird"/></svg>
+(if you already pasted v1, find: <svg viewBox="10 -590 1210 620" aria-hidden="true"><use href="#kj-mark"/></svg>)
 REPLACE WITH:
-<svg viewBox="10 -590 1210 620" aria-hidden="true"><use href="#kj-mark"/></svg>
+<svg viewBox="10 -590 1240 630" aria-hidden="true"><use href="#kj-mark"/></svg>
 
 ═══ 3. HERO CIRCLE (inside <div class="medallion">) ═══
-FIND: the whole  <svg viewBox="0 0 200 200" role="img" aria-label="Kaajana — drongo"> … </svg>
+FIND: the whole <svg viewBox="0 0 200 200" role="img" …> … </svg>
 REPLACE WITH:
 
 <svg viewBox="0 0 200 200" role="img" aria-label="Kaajana — ಕಾ lettermark">
-  <circle cx="100" cy="100" r="90" fill="none" stroke="#FFA630" stroke-width="2.5"/>
-  <g transform="translate(100 100) scale(.118) translate(-624 290)" style="color:#5B3CC4"><use href="#kj-mark"/></g>
+  <circle cx="100" cy="100" r="100" fill="url(#kjDisc)"/>
+  <circle cx="100" cy="100" r="91" fill="none" stroke="#5B3CC4" stroke-opacity=".35" stroke-width="1.2" stroke-dasharray="1 5.2" stroke-linecap="round"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#FFA630" stroke-width="2"/>
+  <path class="tw" d="M160 43Q160 52 169 52Q160 52 160 61Q160 52 151 52Q160 52 160 43Z" fill="#FFA630"/><path class="tw" d="M42 144Q42 150 48 150Q42 150 42 156Q42 150 36 150Q42 150 42 144Z" fill="#E85C8A"/><path class="tw" d="M152 146Q152 150 156 150Q152 150 152 154Q152 150 148 150Q152 150 152 146Z" fill="#5B3CC4"/>
+  <g transform="translate(100 100) scale(.112) translate(-624 290)"><use href="#kj-mark"/></g>
 </svg>
 
 ═══ 4. CSS ═══
-(a) FIND:
-  width:46px; height:46px; border-radius:14px; flex:none;
-  background:linear-gradient(150deg,var(--violet),#8B5CF6 60%,var(--rose));
-  color:#fff;
-  display:grid; place-items:center; box-shadow:var(--shadow-s);
-}
-.logo-badge svg{width:34px; height:34px}
-(your copy may say width:29px — match on the first lines; replace the whole logo-badge rule + its svg line)
-REPLACE WITH:
+(a) Replace the .logo-badge rule and its svg line with:
+.logo-badge{
   width:60px; height:46px; border-radius:14px; flex:none;
   background:var(--paper); border:1px solid var(--line);
   color:var(--violet);
@@ -41,13 +44,13 @@ REPLACE WITH:
 }
 .logo-badge svg{width:42px; height:auto; display:block}
 
-(b) In the .medallion rule: change
-  width:158px; height:158px;   →   width:172px; height:172px;
-and the line  background:linear-gradient(150deg,var(--violet),#8B5CF6 60%,var(--rose));  (or your radial-gradient one)  →  background:var(--paper);
+(b) In .medallion: width/height 158px → 172px, and the background line → background:var(--paper);
 
-(c) In the @media (max-width:400px) block, replace
-  .logo-badge{width:40px; height:40px; border-radius:12px}
-  .logo-badge svg{width:30px; height:30px}
-with
+(c) Right after the line  .medallion svg{width:100%; height:100%; display:block}  add:
+.medallion .tw{animation:tw 3.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center}
+.medallion .tw:nth-of-type(2){animation-delay:-1.1s} .medallion .tw:nth-of-type(3){animation-delay:-2.2s}
+@keyframes tw{50%{transform:scale(.55); opacity:.55}}
+
+(d) In @media (max-width:400px), replace the two .logo-badge lines with:
   .logo-badge{width:52px; height:40px; border-radius:12px}
   .logo-badge svg{width:36px}
