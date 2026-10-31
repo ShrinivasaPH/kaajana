@@ -139,9 +139,17 @@ nav a{padding:9px 13px; border-radius:99px; font-size:15.5px; font-weight:500; c
 .burger span{display:block; width:18px; height:2px; background:var(--ink); margin:3.5px auto; border-radius:2px}
 
 /* ── hero: the lit stage, founder centre ────────────────── */
-.hero{position:relative; overflow:hidden; padding:74px 0 40px; text-align:center}
+.hero{position:relative; overflow:hidden; padding:128px 0 40px; text-align:center}
 .gels{position:absolute; inset:-10% 0 auto; height:120%; width:100%; pointer-events:none; z-index:0}
 .gels svg{width:100%; height:100%; mix-blend-mode:multiply; opacity:.75}
+/* stage lighting rig above the headline */
+.rig{position:absolute; top:0; left:50%; width:min(100%,1400px); transform:translateX(-50%); pointer-events:none; z-index:0}
+.rig svg{display:block; width:100%; height:auto; overflow:visible}
+.rig .rig-n{display:none}
+.kl-b{transform-box:fill-box; transform-origin:50% 0; animation:klSway 7s ease-in-out infinite alternate}
+@keyframes klSway{0%{transform:rotate(-2.6deg); opacity:.78}100%{transform:rotate(2.6deg); opacity:1}}
+@media (max-width:1000px){.rig .rig-w{display:none}.rig .rig-n{display:block;width:min(100%,640px);margin:0 auto}}
+@media (prefers-reduced-motion:reduce){.kl-b{animation:none}}
 .hero .wrap{position:relative; z-index:1}
 .hero-eyebrow{justify-content:center; margin-bottom:18px}
 .hero-eyebrow::before{display:none}
@@ -151,7 +159,7 @@ nav a{padding:9px 13px; border-radius:99px; font-size:15.5px; font-weight:500; c
 }
 
 /* ── Kaajana badge (hero) — layered 3D, scaled by --s ───── */
-.badge-stage{--s:.42; position:relative; width:calc(740px*var(--s)*1.04); height:calc(740px*var(--s)*1.04); margin:34px auto 52px; display:grid; place-items:center}
+.badge-stage{--s:.42; position:relative; width:calc(740px*var(--s)*1.04); height:calc(740px*var(--s)*1.04); margin:34px auto 40px; display:grid; place-items:center}
 /* violet ripples — lifts the cream badge off the pale hero without a heavy backing */
 .badge-stage::before{content:""; position:absolute; inset:-4%; border-radius:50%;
   background:radial-gradient(circle,rgba(91,60,196,.30) 0%,rgba(91,60,196,.16) 60%,rgba(91,60,196,0) 100%);
@@ -184,10 +192,7 @@ nav a{padding:9px 13px; border-radius:99px; font-size:15.5px; font-weight:500; c
  /* photo sits over the monogram; if it fails to load the monogram shows through */
 .perch{position:absolute; top:-16px; right:-14px; width:44px; height:44px; background:var(--marigold); border-radius:50% 50% 50% 12px; display:grid; place-items:center; box-shadow:var(--shadow-s)}
 .perch svg{width:26px; height:26px; transform:scaleX(-1)}
-.founder-role{margin-top:16px; font-size:13px; font-weight:600; letter-spacing:.13em; text-transform:uppercase; color:var(--ink2)}
-html[data-lang="kn"] .founder-role{letter-spacing:.04em; text-transform:none; font-size:15px}
-.founder-name{font-size:clamp(28px,4.6vw,44px); margin:4px 0 0}
-.hero h1{font-size:clamp(34px,6.4vw,68px); margin:22px auto 0; max-width:15ch}
+html[data-lang="kn"] .hero h1{font-size:clamp(34px,6.4vw,68px); margin:22px auto 0; max-width:15ch}
 .hero h1 em{font-style:normal; color:var(--violet); position:relative; white-space:nowrap}
 .hero h1 em::after{
   content:""; position:absolute; left:0; right:0; bottom:.06em; height:.34em;
@@ -433,7 +438,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
   #preview-bar{font-size:12.5px; line-height:1.45; text-align:center}
   .sect{padding-block:56px 4px}
   .sect-head{margin-bottom:26px}
-  .hero{padding:44px 0 30px}
+  .hero{padding:96px 0 30px}
       .quote{font-size:17px; padding:0 22px}
   .cta-row{flex-direction:column}
   .cta-row .btn{width:100%; justify-content:center}
@@ -460,7 +465,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 }
 /* phone held sideways — short screens */
 @media (max-height:500px) and (orientation:landscape){
-  .hero{padding:34px 0 24px}
+  .hero{padding:78px 0 24px}
     }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.001s !important}
@@ -478,6 +483,20 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
 <linearGradient id="kMwing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A3B5CC"/><stop offset="1" stop-color="#55667D"/></linearGradient>
 <linearGradient id="kMink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#454B5C"/><stop offset=".6" stop-color="#1E2029"/><stop offset="1" stop-color="#0E0F13"/></linearGradient>
 <linearGradient id="kMrim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="kLampG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C8DA6"/><stop offset=".55" stop-color="#4C5B72"/><stop offset="1" stop-color="#33405A"/></linearGradient>
+<radialGradient id="kLens" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFFDF2"/><stop offset=".6" stop-color="#FFE3A3"/><stop offset="1" stop-color="#FFC15E"/></radialGradient>
+<filter id="kBlur" x="-30%" y="-10%" width="160%" height="130%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="kGlowB" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+<linearGradient id="kBmAmber" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB347" stop-opacity=".62"/><stop offset="1" stop-color="#FFB347" stop-opacity="0"/></linearGradient>
+<linearGradient id="kBmRose" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F58AAE" stop-opacity=".58"/><stop offset="1" stop-color="#F58AAE" stop-opacity="0"/></linearGradient>
+<linearGradient id="kBmGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD76E" stop-opacity=".66"/><stop offset="1" stop-color="#FFD76E" stop-opacity="0"/></linearGradient>
+<linearGradient id="kBmTeal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5CCBB3" stop-opacity=".55"/><stop offset="1" stop-color="#5CCBB3" stop-opacity="0"/></linearGradient>
+<linearGradient id="kBmViolet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9C80FF" stop-opacity=".55"/><stop offset="1" stop-color="#9C80FF" stop-opacity="0"/></linearGradient>
+<g id="kLamp"><circle cx="0" cy="48" r="22" fill="#FFE2A0" opacity=".65" filter="url(#kGlowB)"/>
+<rect x="-8" y="-5" width="16" height="9" rx="2" fill="#55667D"/><path d="M0 4V9M-22 24V13Q-22 8 -17 8H17Q22 8 22 13V24" fill="none" stroke="#55667D" stroke-width="3" stroke-linecap="round"/>
+<path d="M-17 40L-28 56L-17 53Z M17 40L28 56L17 53Z" fill="#2E3748"/>
+<rect x="-17" y="11" width="34" height="34" rx="7" fill="url(#kLampG)"/><path d="M-12 20H12M-12 26H12" stroke="#fff" stroke-opacity=".22" stroke-width="1.6" stroke-linecap="round"/>
+<ellipse cx="0" cy="46" rx="15" ry="4.6" fill="url(#kLens)"/></g>
 <mask id="kMmask" maskUnits="userSpaceOnUse" x="-20" y="-20" width="720" height="420"><rect x="-20" y="-20" width="720" height="420" fill="#fff"/><circle cx="168" cy="98" r="64" fill="#000"/></mask>
 <clipPath id="kMclip"><circle cx="150" cy="105" r="80"/></clipPath>
 <filter id="kMsh" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="3" dy="10" stdDeviation="8" flood-color="#2A1A12" flood-opacity=".26"/></filter>
@@ -553,6 +572,7 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
         </g>
       </svg>
     </div>
+    <div class="rig" aria-hidden="true"><svg class="rig-w" viewBox="0 0 1200 430" aria-hidden="true"><path d="M-10,12H1210M-10,26H1210M-10,12L-1,26L8,12L17,26L26,12L35,26L44,12L53,26L62,12L71,26L80,12L89,26L98,12L107,26L116,12L125,26L134,12L143,26L152,12L161,26L170,12L179,26L188,12L197,26L206,12L215,26L224,12L233,26L242,12L251,26L260,12L269,26L278,12L287,26L296,12L305,26L314,12L323,26L332,12L341,26L350,12L359,26L368,12L377,26L386,12L395,26L404,12L413,26L422,12L431,26L440,12L449,26L458,12L467,26L476,12L485,26L494,12L503,26L512,12L521,26L530,12L539,26L548,12L557,26L566,12L575,26L584,12L593,26L602,12L611,26L620,12L629,26L638,12L647,26L656,12L665,26L674,12L683,26L692,12L701,26L710,12L719,26L728,12L737,26L746,12L755,26L764,12L773,26L782,12L791,26L800,12L809,26L818,12L827,26L836,12L845,26L854,12L863,26L872,12L881,26L890,12L899,26L908,12L917,26L926,12L935,26L944,12L953,26L962,12L971,26L980,12L989,26L998,12L1007,26L1016,12L1025,26L1034,12L1043,26L1052,12L1061,26L1070,12L1079,26L1088,12L1097,26L1106,12L1115,26L1124,12L1133,26L1142,12L1151,26L1160,12L1169,26L1178,12L1187,26L1196,12L1205,26L1214,12" fill="none" stroke="#7F8EA5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/><g transform="translate(120 26) rotate(-61.8)"><polygon class="kl-b" style="animation-delay:0.0s" points="-14,47 14,47 92,380 -92,380" fill="url(#kBmAmber)" filter="url(#kBlur)"/><use href="#kLamp"/></g><g transform="translate(360 26) rotate(-43.0)"><polygon class="kl-b" style="animation-delay:-1.3s" points="-14,47 14,47 92,380 -92,380" fill="url(#kBmRose)" filter="url(#kBlur)"/><use href="#kLamp"/></g><g transform="translate(600 26) rotate(-0.0)"><polygon class="kl-b" style="animation-delay:-2.6s" points="-14,47 14,47 92,380 -92,380" fill="url(#kBmGold)" filter="url(#kBlur)"/><use href="#kLamp"/></g><g transform="translate(840 26) rotate(43.0)"><polygon class="kl-b" style="animation-delay:-3.9s" points="-14,47 14,47 92,380 -92,380" fill="url(#kBmTeal)" filter="url(#kBlur)"/><use href="#kLamp"/></g><g transform="translate(1080 26) rotate(61.8)"><polygon class="kl-b" style="animation-delay:-5.2s" points="-14,47 14,47 92,380 -92,380" fill="url(#kBmViolet)" filter="url(#kBlur)"/><use href="#kLamp"/></g></svg><svg class="rig-n" viewBox="0 0 560 360" aria-hidden="true"><path d="M-10,12H570M-10,26H570M-10,12L-1,26L8,12L17,26L26,12L35,26L44,12L53,26L62,12L71,26L80,12L89,26L98,12L107,26L116,12L125,26L134,12L143,26L152,12L161,26L170,12L179,26L188,12L197,26L206,12L215,26L224,12L233,26L242,12L251,26L260,12L269,26L278,12L287,26L296,12L305,26L314,12L323,26L332,12L341,26L350,12L359,26L368,12L377,26L386,12L395,26L404,12L413,26L422,12L431,26L440,12L449,26L458,12L467,26L476,12L485,26L494,12L503,26L512,12L521,26L530,12L539,26L548,12L557,26L566,12L575,26L584,12" fill="none" stroke="#7F8EA5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/><g transform="translate(100 26) rotate(-45.5)"><polygon class="kl-b" style="animation-delay:0.0s" points="-14,47 14,47 78,280 -78,280" fill="url(#kBmAmber)" filter="url(#kBlur)"/><use href="#kLamp"/></g><g transform="translate(280 26) rotate(-0.0)"><polygon class="kl-b" style="animation-delay:-1.3s" points="-14,47 14,47 78,280 -78,280" fill="url(#kBmGold)" filter="url(#kBlur)"/><use href="#kLamp"/></g><g transform="translate(460 26) rotate(45.5)"><polygon class="kl-b" style="animation-delay:-2.6s" points="-14,47 14,47 78,280 -78,280" fill="url(#kBmViolet)" filter="url(#kBlur)"/><use href="#kLamp"/></g></svg></div>
 
     <div class="wrap">
       <div class="eyebrow hero-eyebrow"><span data-i18n="hero.badge"></span></div>
@@ -567,7 +587,6 @@ body:has(.sheet.open) .totop{opacity:0; visibility:hidden}
     <div class="kb-gloss" style="transform:translateZ(130px)"></div>
   </div></div>
 </div></div>
-        
       </div>
 
       <h1 class="display" id="heroTitle"></h1>
@@ -823,8 +842,6 @@ function paintStatic(){
   const q = document.querySelector('.quote');
   if (q) q.style.display = t('hero.quote') ? '' : 'none';
 
-  // hero identity comes from the first person in `leads` — one place to edit
-  
   const mark = t('hero.titleMark');
   document.getElementById('heroTitle').innerHTML =
     esc(t('hero.titleLead')) + (mark ? ` <em>${esc(mark)}</em>` : '');
