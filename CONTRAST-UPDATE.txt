@@ -1,0 +1,28 @@
+LOGO CONTRAST UPDATE — 3 small changes to index.html
+(Or just upload the attached index.html over the one in your repo.)
+
+1. HTML — wrap the badge. FIND the line:
+   <div class="badge3d" role="img"
+   REPLACE WITH:
+   <div class="badge-stage"><div class="badge3d" role="img"
+   Then find the END of that badge block — the line ending  …<div class="kb-gloss" style="transform:translateZ(130px)"></div>  followed by three  </div>  closers — and add ONE more  </div>  right after them.
+
+2. CSS — REPLACE the existing  .badge3d{--s:.42; …}  rule with:
+.badge-stage{--s:.40; position:relative; width:calc(740px*var(--s)*1.18); height:calc(740px*var(--s)*1.18); margin:0 auto; display:grid; place-items:center}
+.badge-stage::before{content:""; position:absolute; inset:0; border-radius:50%;
+  background:radial-gradient(circle at 30% 22%,#8B6CF5 0%,#5B3CC4 46%,#3A2391 100%);
+  box-shadow:0 34px 60px -26px rgba(58,35,145,.65), inset 0 0 0 2px rgba(255,255,255,.28), inset 0 -14px 30px rgba(30,15,90,.35), inset 0 12px 24px rgba(255,255,255,.18)}
+.badge-stage::after{content:""; position:absolute; inset:7px; border-radius:50%; border:2px dashed rgba(255,166,48,.85); animation:kbSpin 60s linear infinite}
+@keyframes kbSpin{to{transform:rotate(360deg)}}
+.badge3d{width:calc(740px*var(--s)); height:calc(740px*var(--s)); position:relative; perspective:calc(1500px*var(--s)); z-index:1}
+
+   and change the two size rules below it to:
+@media (max-width:760px){.badge-stage{--s:.33}}
+@media (max-width:400px){.badge-stage{--s:.29}}
+
+   In the prefers-reduced-motion line, add  .badge-stage::after  to the list of animation:none selectors.
+
+3. CSS — header badge: in the .logo-badge rule, replace
+   border:1.5px solid #fff; box-shadow:var(--shadow-s), inset 0 -4px 8px rgba(90,60,40,.10);
+   with
+   border:2.5px solid var(--violet); box-shadow:0 6px 14px -6px rgba(91,60,196,.55), inset 0 -4px 8px rgba(90,60,40,.10);
